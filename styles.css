@@ -256,3 +256,65 @@ body{font-size:16px;line-height:1.65}
 .franchise-form .button{width:100%;font-size:14px;min-height:50px}
 .franchise-form .form-note{font-size:12px;line-height:1.5}
 @media(max-width:800px){.franchise-section{grid-template-columns:1fr;padding:64px 22px;gap:28px}.franchise-copy h2{font-size:clamp(36px,8vw,48px);letter-spacing:-1.8px}.franchise-copy>p{font-size:15px}.franchise-fields{grid-template-columns:1fr;gap:0}.franchise-form{padding:22px}}
+
+
+/* Interactive trade-specific ERP showcase */
+.trade-showcase{background:#e8ebdf;padding:clamp(64px,8vw,110px) max(calc((100% - 1400px)/2),6%)}
+.trade-showcase-inner{max-width:1400px;margin:0 auto}
+.trade-heading{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:35px}
+.trade-heading h2{font:600 clamp(38px,4.4vw,60px)/1.08 Manrope,sans-serif;letter-spacing:-2.8px;margin:17px 0 0}
+.trade-heading h2 em{font-style:normal;color:#829c36}
+.trade-heading>p{max-width:440px;color:#65726b;font-size:15px;line-height:1.8;margin:0 0 4px}
+.trade-picker{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.trade-option{border:1px solid #cbd2c2;border-radius:999px;padding:11px 17px;background:#f8f8f1;color:#3b4840;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.trade-option:hover{transform:translateY(-1px);border-color:#9bac65}
+.trade-option.is-active{background:#1d2a29;color:#fff;border-color:#1d2a29}
+.trade-demo-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:22px;align-items:stretch}
+.trade-dashboard{background:#fffefa;border:1px solid #e0e4d7;padding:clamp(20px,3vw,34px);min-width:0;box-shadow:0 20px 55px #26322c0a}
+.trade-dashboard-top{display:flex;justify-content:space-between;gap:15px;align-items:start}
+.dashboard-kicker,.workflow-label{font-size:10px;font-weight:800;letter-spacing:1.3px;color:#84963f}
+.trade-dashboard-top h3{font:700 clamp(23px,2.4vw,32px) Manrope;letter-spacing:-1px;margin:9px 0 5px}
+.trade-dashboard-top p{font-size:14px;color:#768179;margin:0}
+.demo-pill{flex-shrink:0;background:#f0f4df;color:#6f842e;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.7px}
+.trade-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0}
+.trade-kpis>div{padding:15px;background:#f5f6ef;border:1px solid #e9ebdf;min-width:0}
+.trade-kpis span,.trade-kpis small{display:block;color:#768179;font-size:12px;line-height:1.45}
+.trade-kpis b{display:block;font:700 clamp(21px,2.2vw,29px) Manrope;letter-spacing:-.8px;margin:8px 0 5px;overflow-wrap:anywhere}
+.trade-chart-card{border:1px solid #e5e8dd;padding:20px}
+.trade-chart-heading{display:flex;justify-content:space-between;gap:15px;margin-bottom:20px}
+.trade-chart-heading b,.trade-chart-heading small{display:block}
+.trade-chart-heading b{font:700 16px Manrope}
+.trade-chart-heading small{font-size:12px;color:#849087;margin-top:5px}
+.trade-chart-heading>span{width:32px;height:32px;border-radius:50%;background:#eef2df;display:grid;place-items:center;color:#829c36}
+.trade-bars{display:grid;gap:15px}
+.trade-bar-row{display:grid;grid-template-columns:minmax(85px, .7fr) minmax(70px,2fr) 28px;align-items:center;gap:12px;font-size:12px;color:#69766e}
+.trade-bar-track{height:12px;background:#edf0e6;border-radius:3px;overflow:hidden}
+.trade-bar-track i{display:block;height:100%;background:#a8c743;border-radius:3px;transition:width .35s ease}
+.trade-bar-row:nth-child(2) .trade-bar-track i{background:#8fa65a}
+.trade-bar-row:nth-child(3) .trade-bar-track i{background:#d6a27e}
+.trade-bar-row:nth-child(4) .trade-bar-track i{background:#7f9690}
+.trade-bar-row>b{text-align:right;font-size:12px;color:#3e4b43}
+.trade-workflow{margin-top:20px;padding:17px;background:#f5f6ef}
+#trade-workflow-items{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+#trade-workflow-items span{font-size:12px;font-weight:700;background:white;border:1px solid #e1e6d8;padding:8px 10px;border-radius:3px}
+#trade-workflow-items i{font-style:normal;color:#91a34a}
+.trade-benefits{background:#fffefa;border:1px solid #e0e4d7;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column}
+.trade-benefits h3{font:700 clamp(23px,2.5vw,31px)/1.2 Manrope;letter-spacing:-1px;margin:18px 0 12px}
+.trade-benefits>p{font-size:15px;line-height:1.8;color:#69766e;margin:0}
+#benefit-list{list-style:none;padding:0;margin:22px 0}
+#benefit-list li{font-size:14px;color:#4d5a51;padding:10px 0;border-bottom:1px solid #edf0e7}
+#benefit-list li:before{content:'✓';color:#829c36;font-weight:800;margin-right:10px}
+.creative-preview{display:grid;grid-template-columns:90px 1fr;gap:15px;align-items:center;background:#f2f4e9;padding:13px;margin:auto 0 22px}
+.creative-preview-art{height:92px;background:#1d2a29;position:relative;overflow:hidden}
+.creative-orbit{position:absolute;width:72px;height:48px;border:1px solid #d5f36b;border-radius:50%;transform:rotate(-35deg);left:9px;top:21px}
+.creative-square{position:absolute;width:34px;height:34px;background:#d5f36b;transform:rotate(18deg);left:28px;top:28px}
+.creative-dot{position:absolute;width:9px;height:9px;background:#f49a67;border-radius:50%;right:13px;top:13px}
+.creative-line{position:absolute;width:55px;height:1px;background:#c6d2c0;left:17px;bottom:13px;transform:rotate(-20deg)}
+.creative-preview .article-kicker{display:block;font-size:9px;letter-spacing:1px;color:#82963b;margin-bottom:7px}
+.creative-preview b,.creative-preview small{display:block}
+.creative-preview b{font:700 14px/1.35 Manrope}
+.creative-preview small{font-size:12px;line-height:1.5;color:#78847b;margin-top:6px}
+.trade-benefits>.button{align-self:start;font-size:14px;min-height:48px}
+.trade-disclaimer{font-size:12px;color:#78847b;line-height:1.6;margin:18px 0 0}
+@media(max-width:900px){.trade-heading{display:block}.trade-heading>p{margin-top:18px;max-width:650px}.trade-demo-grid{grid-template-columns:1fr}.trade-benefits{min-height:auto}.creative-preview{margin-top:8px}}
+@media(max-width:560px){.trade-showcase{padding:58px 18px}.trade-heading h2{font-size:38px;letter-spacing:-1.8px}.trade-picker{gap:8px}.trade-option{font-size:12px;padding:10px 12px}.trade-dashboard{padding:17px}.trade-dashboard-top{display:block}.demo-pill{display:inline-block;margin-top:12px}.trade-kpis{gap:7px;margin:20px 0}.trade-kpis>div{padding:10px 8px}.trade-kpis span,.trade-kpis small{font-size:10px}.trade-kpis b{font-size:20px}.trade-chart-card{padding:14px}.trade-bar-row{grid-template-columns:82px minmax(40px,1fr) 22px;gap:7px;font-size:11px}.creative-preview{grid-template-columns:72px 1fr;gap:10px}.creative-preview-art{height:82px}.trade-benefits{padding:22px}}
