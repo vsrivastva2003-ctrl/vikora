@@ -433,3 +433,69 @@ if (businessFinder) {
     result.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
   });
 }
+
+
+// Tutorial report lab: interactive illustrative charts, never live financial data.
+const reportLab = document.querySelector('.tutorial-report-lab');
+if (reportLab) {
+  const reportViews = {
+    sales: {
+      label:'SALES OVERVIEW', metricLabel:'Sales value', metricValue:'₹8.4L', metricChange:'Illustrative total',
+      ring:72, ringLabel:'Target indicator', chartTitle:'Sales by period', legend:'Sales value index',
+      values:[48,61,54,73,66,88], periods:['Jan','Feb','Mar','Apr','May','Jun'],
+      noteTitle:'Read the sales trend',
+      note:'Compare periods, look for changes, and investigate which products or customers may explain the movement.'
+    },
+    stock: {
+      label:'INVENTORY WATCH', metricLabel:'Items to review', metricValue:'12', metricChange:'Illustrative alert count',
+      ring:64, ringLabel:'Stock coverage sample', chartTitle:'Stock status by group', legend:'Availability index',
+      values:[82,64,47,71,39,58], periods:['Core','Home','Parts','Tools','Pack','Other'],
+      noteTitle:'Spot stock that needs attention',
+      note:'Review low-stock and reorder signals, confirm recent purchases and movements, then decide which items need follow-up.'
+    },
+    finance: {
+      label:'FINANCE SNAPSHOT', metricLabel:'Operating overview', metricValue:'₹3.1L', metricChange:'Illustrative sample total',
+      ring:81, ringLabel:'Plan indicator', chartTitle:'Monthly review index', legend:'Illustrative finance index',
+      values:[42,57,51,69,74,81], periods:['Jan','Feb','Mar','Apr','May','Jun'],
+      noteTitle:'Use reports to ask better questions',
+      note:'Compare income, costs, outstanding balances and cash-flow indicators where available. Investigate exceptions before making decisions.'
+    }
+  };
+  const put = (id, value) => { const node = document.getElementById(id); if (node) node.textContent = value; };
+  const draw = key => {
+    const data = reportViews[key] || reportViews.sales;
+    put('report-dashboard-label', data.label);
+    put('report-metric-label', data.metricLabel);
+    put('report-metric-value', data.metricValue);
+    put('report-metric-change', data.metricChange);
+    put('report-ring-value', String(data.ring));
+    const ring = document.getElementById('report-ring');
+    if (ring) ring.style.setProperty('--ring-progress', data.ring + '%');
+    put('report-ring-label', data.ringLabel);
+    put('report-chart-title', data.chartTitle);
+    put('report-legend-label', data.legend);
+    put('report-note-title', data.noteTitle);
+    put('report-note-text', data.note);
+    const chart = document.getElementById('tutorial-report-chart');
+    if (chart) {
+      chart.replaceChildren();
+      data.values.forEach((value, index) => {
+        const column = document.createElement('div'); column.className = 'report-bar-column';
+        const number = document.createElement('span'); number.textContent = value;
+        const bar = document.createElement('i'); bar.style.height = value + '%';
+        const period = document.createElement('small'); period.textContent = data.periods[index];
+        column.append(number, bar, period); chart.append(column);
+      });
+      chart.setAttribute('aria-label', 'Illustrative bar chart: ' + data.chartTitle);
+    }
+    reportLab.querySelectorAll('.report-choice').forEach(button => {
+      const active = button.dataset.report === key;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  };
+  reportLab.querySelectorAll('.report-choice').forEach(button => {
+    button.addEventListener('click', () => draw(button.dataset.report));
+  });
+  draw('sales');
+}
