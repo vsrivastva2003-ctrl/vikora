@@ -193,3 +193,22 @@ if (showcase) {
     startAutoAdvance();
   }
 }
+
+
+document.querySelector('#franchise-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const subject = encodeURIComponent('Vikora franchise / business partner enquiry');
+  const body = encodeURIComponent(
+    'Franchise / Business Partner Enquiry\n\n' +
+    'Name: ' + data.get('name') + '\n' +
+    'Email: ' + data.get('email') + '\n' +
+    'Phone: ' + data.get('phone') + '\n' +
+    'City / State: ' + data.get('location') + '\n' +
+    'Business experience: ' + data.get('experience') + '\n' +
+    'Investment range: ' + (data.get('investment') || 'Prefer to discuss') + '\n\n' +
+    'Plan / questions: ' + (data.get('message') || 'Not provided')
+  );
+  document.querySelector('#franchise-note').textContent = 'Opening your email app with the enquiry ready. Please send the email to complete your enquiry.';
+  window.location.href = 'mailto:hello@vikora.com?subject=' + subject + '&body=' + body;
+});
