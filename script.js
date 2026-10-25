@@ -499,3 +499,108 @@ if (reportLab) {
   });
   draw('sales');
 }
+
+
+// VIKAA support preview. This client-side starter guide is not connected to an AI model or customer database.
+const vikaa = document.querySelector('.vikaa-widget');
+if (vikaa) {
+  const panel = document.getElementById('vikaa-panel');
+  const launcher = vikaa.querySelector('.vikaa-launcher');
+  const closeButton = vikaa.querySelector('.vikaa-close');
+  const form = document.getElementById('vikaa-form');
+  const input = document.getElementById('vikaa-input');
+  const messages = document.getElementById('vikaa-messages');
+  const promptButtons = vikaa.querySelectorAll('[data-vikaa-prompt]');
+  const helpTopics = [
+    {
+      keys:['sales entry','sales invoice','sale entry','customer invoice','sales voucher','pass a sales'],
+      title:'Sales entry — typical workflow',
+      body:'1. Open the Sales module and choose the appropriate sales invoice/order screen.\n2. Select the customer and verify the invoice date, branch and reference.\n3. Add the correct items or service lines, quantities, rates, tax and any permitted discount.\n4. Check totals and payment/credit details, then save or submit for approval according to your role.\n5. Reopen the saved record and verify its status and related stock/accounts impact if those integrations are enabled.\n\nBefore posting, confirm the exact screen names and tax/accounting rules for your installation.'
+    },
+    {
+      keys:['purchase','supplier bill','purchase entry','purchase invoice','vendor bill','goods receipt'],
+      title:'Purchase and supplier entry',
+      body:'1. Open Purchase and choose the purchase order, bill or receipt screen that matches the document you received.\n2. Select the supplier and check invoice date, supplier reference and branch.\n3. Add the correct products/services, quantities, rates, tax and other charges.\n4. Match received quantities and supporting documents before saving or submitting.\n5. Verify the saved purchase and check Inventory/Accounts only if those modules are linked in your setup.\n\nDo not create a duplicate bill if the purchase order or receipt already exists.'
+    },
+    {
+      keys:['inventory','stock','stock entry','item entry','warehouse','opening stock'],
+      title:'Inventory and stock',
+      body:'Start by confirming the item code, unit of measure, warehouse/location and opening quantity. For incoming goods, follow your configured purchase/receipt workflow; for outgoing goods, use the authorised issue, dispatch or sales workflow. Check the transaction date and quantity before posting, then review the stock ledger or inventory report if available. Avoid editing opening balances to correct a normal transaction without checking your accounting procedure.'
+    },
+    {
+      keys:['journal','accounting entry','accounts entry','ledger','debit','credit','expense entry','payment entry','receipt entry'],
+      title:'Accounts entry — check before posting',
+      body:'First identify the document type: supplier invoice, customer receipt, payment, expense, or journal adjustment. Use the matching Accounts screen rather than a journal entry when a dedicated transaction exists. Confirm the company/branch, date, ledger accounts, debit/credit balance, tax treatment, reference and attachments. Save as draft or request approval if available, then verify the posted ledger/report.\n\nDebit/credit treatment depends on the transaction and your chart of accounts. For statutory or tax-sensitive entries, confirm with your accountant before posting.'
+    },
+    {
+      keys:['report','mis','dashboard','sales trend','profit','financial report','balance sheet','trial balance'],
+      title:'Reports & MIS',
+      body:'Open Reports & MIS or the relevant module report. Choose the correct company/branch, date range and filters; refresh or generate the report; then compare totals with the source transactions. Drill into individual records to investigate differences and export only if your role permits it.\n\nThe report names and available filters depend on your installed edition and permissions. The charts on this website are examples, not live customer data.'
+    },
+    {
+      keys:['login','log in','sign in','password','cannot open','access denied','permission','module not visible','error','failed','not working','troubleshoot','trouble shoot','crash','slow'],
+      title:'Troubleshooting access or errors',
+      body:'Try these safe checks: (1) confirm the correct company and user account; (2) refresh the app and sign in again; (3) ask an administrator to verify your role, module permissions and branch scope; (4) check whether other users see the same issue; (5) note the exact error message, screen and steps that triggered it.\n\nFor a network/server issue, have your administrator check the approved server and LAN/Wi-Fi connection. Do not share passwords, one-time codes, database files or private customer records in this chat. Contact Vikora support with the error text and a redacted screenshot if it persists.'
+    },
+    {
+      keys:['user','role','permission','new employee','add user','branch access'],
+      title:'Users and permissions',
+      body:'An administrator can typically open Settings → Users & Permissions, create or select a user, assign the appropriate role, and grant only the required module actions. Apply branch scope where your installation supports it, save changes and test using that user’s account. If a module is missing, verify both the licence and the assigned permissions.'
+    },
+    {
+      keys:['license','licence','activation','expiry','renew','rental','multi user','multi-user','client machine','server'],
+      title:'Licence and multi-user setup',
+      body:'Check the licence type, registered machine/server details, seat limit and expiry/renewal date shown in your official licence documents. For a server-and-client setup, confirm all computers are configured using the instructions supplied with your installation. If activation fails or the allowed user count is reached, do not try to bypass the licence—contact Vikora support with the licence reference (never share secret keys publicly).'
+    }
+  ];
+  const openVikaa = () => {
+    panel.hidden = false;
+    launcher.setAttribute('aria-expanded','true');
+    input.focus();
+  };
+  const closeVikaa = () => {
+    panel.hidden = true;
+    launcher.setAttribute('aria-expanded','false');
+    launcher.focus();
+  };
+  const addMessage = (text, who) => {
+    const row = document.createElement('div');
+    row.className = 'vikaa-message ' + (who === 'user' ? 'vikaa-user' : 'vikaa-bot');
+    const badge = document.createElement('span');
+    badge.textContent = who === 'user' ? 'You' : 'V';
+    const bubble = document.createElement('p');
+    bubble.textContent = text;
+    row.append(badge, bubble);
+    messages.append(row);
+    messages.scrollTop = messages.scrollHeight;
+  };
+  const getAnswer = question => {
+    const q = question.toLowerCase().replace(/[^a-z0-9\s-]/g, ' ');
+    let best = null;
+    let bestScore = 0;
+    helpTopics.forEach(topic => {
+      const score = topic.keys.reduce((total, key) => total + (q.includes(key) ? Math.max(1, key.split(' ').length) : 0), 0);
+      if (score > bestScore) { best = topic; bestScore = score; }
+    });
+    if (best && bestScore > 0) return best.title + '\n\n' + best.body;
+    return 'I don’t have a reliable answer for that exact question in this starter help guide yet. Try including the module name (Sales, Purchase, Inventory, Accounts, Reports, Users or Licence), what you were trying to do, and the exact error message with private details removed.\n\nFor installation-specific steps or an unresolved issue, use the Contact section on this website to reach the Vikora team. This preview does not connect to a live AI model or your Vikora-One installation.';
+  };
+  const ask = question => {
+    const clean = question.trim();
+    if (!clean) return;
+    addMessage(clean, 'user');
+    addMessage(getAnswer(clean), 'bot');
+  };
+  launcher.addEventListener('click', () => panel.hidden ? openVikaa() : closeVikaa());
+  closeButton.addEventListener('click', closeVikaa);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    ask(input.value);
+    input.value = '';
+    input.focus();
+  });
+  promptButtons.forEach(button => button.addEventListener('click', () => ask(button.dataset.vikaaPrompt)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !panel.hidden) closeVikaa();
+  });
+}
