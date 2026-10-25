@@ -191,6 +191,36 @@
   </main>
 
   <footer class="footer"><a class="brand footer-brand brand-image" href="#home" aria-label="Vikora-One home"><img src="images/vikora-one-logo.svg" alt="Vikora-One — One Platform. Endless Possibilities."></a><p>Thoughtful tools for your next move.</p><div class="footer-links"><a href="#guide">Getting started</a><a href="#plans">Plans</a><a href="#about">About us</a><a href="#franchise">Franchise / Partners</a><a href="#contact">Contact</a><a href="#downloads">Downloads</a></div><div class="footer-bottom"><span>© 2025 Vikora. Made with intention.</span><div><a href="#contact">Privacy</a><a href="#contact">Terms</a></div><a href="#home">BACK TO TOP ↑</a></div></footer>
+
+  <aside class="vikaa-widget" aria-label="VIKAA Vikora-One support assistant">
+    <section class="vikaa-panel" id="vikaa-panel" aria-labelledby="vikaa-title" hidden>
+      <div class="vikaa-head">
+        <div class="vikaa-avatar" aria-hidden="true">V</div>
+        <div class="vikaa-head-copy"><strong id="vikaa-title">VIKAA <span>AI SUPPORT</span></strong><small>Vikora-One help desk</small></div>
+        <button class="vikaa-close" type="button" aria-label="Close VIKAA support">×</button>
+      </div>
+      <div class="vikaa-welcome"><span class="vikaa-welcome-spark">✳</span><div><b>Hello, how can I help?</b><p>Ask about modules, entries, reports or common troubleshooting.</p></div></div>
+      <div class="vikaa-quick-prompts" aria-label="Suggested support questions">
+        <button type="button" data-vikaa-prompt="How do I pass a sales entry?">Pass a sales entry</button>
+        <button type="button" data-vikaa-prompt="How do I record a purchase and update stock?">Purchase & stock</button>
+        <button type="button" data-vikaa-prompt="How do I use reports and MIS?">Reports & MIS</button>
+        <button type="button" data-vikaa-prompt="I cannot log in or open a module. Help me troubleshoot.">Troubleshoot access</button>
+      </div>
+      <div class="vikaa-messages" id="vikaa-messages" role="log" aria-live="polite" aria-label="Conversation">
+        <div class="vikaa-message vikaa-bot"><span>V</span><p>Choose a suggested topic or type your question below. I’ll guide you using the available starter help notes.</p></div>
+      </div>
+      <form class="vikaa-form" id="vikaa-form">
+        <label class="vikaa-sr-only" for="vikaa-input">Ask VIKAA a question</label>
+        <input id="vikaa-input" name="question" type="text" maxlength="500" placeholder="Ask how to use Vikora-One…" autocomplete="off" required>
+        <button type="submit" aria-label="Send question">↑</button>
+      </form>
+      <p class="vikaa-disclaimer">Guided support preview · don’t enter passwords, bank details or confidential customer data. For account-specific issues, contact Vikora support.</p>
+    </section>
+    <button class="vikaa-launcher" type="button" aria-expanded="false" aria-controls="vikaa-panel">
+      <span class="vikaa-launcher-icon">✳</span><span><b>Ask VIKAA</b><small>Vikora-One support</small></span><span class="vikaa-launcher-arrow">↗</span>
+    </button>
+  </aside>
+
   <script src="script.js"></script>
 </body>
 </html>
