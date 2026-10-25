@@ -36,7 +36,7 @@ def chunks(text: str) -> list[str]:
     if not text:
         return []
     # Prefer section boundaries, then split oversized sections safely.
-    sections = re.split(r"(?m)(?=^#{1,4}\\s+)", text)
+    sections = re.split(r"(?m)(?=^#{1,4}\s+)", text)
     result = []
     for section in sections:
         section = section.strip()
@@ -69,7 +69,7 @@ def main() -> None:
         raw = read_document(path)
         for index, part in enumerate(chunks(raw), 1):
             digest = hashlib.sha256((str(path) + "\n" + str(index) + "\n" + part).encode("utf-8")).hexdigest()[:14]
-            headings = re.findall(r"(?m)^#{1,4}\\s+(.+)$", part)
+            headings = re.findall(r"(?m)^#{1,4}\s+(.+)$", part)
             title = headings[0].strip() if headings else path.stem.replace("_", " ").replace("-", " ").title()
             relative = path.relative_to(source).as_posix()
             terms = re.findall(r"[a-zA-Z][a-zA-Z0-9-]{2,}", title + " " + part)
