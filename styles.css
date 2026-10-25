@@ -147,3 +147,45 @@ main{background:linear-gradient(180deg,#fffef8 0%,#f5f5ec 48%,#f1f3e7 100%)}
 .tutorial-intro,.about-details-cta{background:linear-gradient(110deg,#e9f2d5,#f7f3e6);border-color:#dce5d9}
 .tutorial-intro-icon{background:#d6f36b;color:#16382f}
 ::selection{background:#d6f36b;color:#16382f}
+
+
+/* Responsive viewport hardening: prevent narrow screens from creating sideways page scroll. */
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%;scroll-padding-top:1rem}
+body{width:100%;max-width:100%;overflow-x:clip}
+img,svg,video,canvas,iframe{max-width:100%}
+input,select,textarea,button{max-width:100%;min-width:0}
+main,section,header,footer,article,aside,nav,.section,.section-heading,.hero-copy,.hero-art,.workspace,.contact-form,.tutorial-manual{min-width:0}
+.site-header,.footer{width:100%;max-width:1240px}
+.hero,.download-section,.contact-section{width:100%;max-width:1440px}
+.nav-links{min-width:0}
+.brand-image img{display:block;width:min(220px,54vw);height:auto;max-height:48px;object-fit:contain}
+.hero-art,.about-gallery,.vikora-showcase{max-width:100%;min-width:0}
+@media(max-width:800px){
+  .site-header{padding-left:clamp(14px,4vw,22px);padding-right:clamp(14px,4vw,22px)}
+  .nav-links{left:12px;right:12px;max-width:calc(100vw - 24px)}
+  .hero,.download-section,.contact-section{padding-left:clamp(18px,6vw,8%);padding-right:clamp(18px,6vw,8%)}
+  .section{padding-left:clamp(18px,6vw,7%);padding-right:clamp(18px,6vw,7%)}
+  .proof-strip div{max-width:100%}
+  .payment-section{padding-left:clamp(18px,6vw,8%);padding-right:clamp(18px,6vw,8%)}
+}
+@media(max-width:480px){
+  .brand-image img{width:min(154px,48vw);max-height:40px}
+  .hero h1{overflow-wrap:anywhere}
+  .hero-actions .button{max-width:100%}
+  .hero-art{margin-left:0;margin-right:0}
+  .product-window{max-width:100%}
+  .floating-card{min-width:0;max-width:84%}
+  .card-top{right:0}
+  .card-bottom{left:0}
+  .tutorial-manual-heading,.section-heading{min-width:0}
+  .footer-links,.footer-bottom,.footer-bottom>div{flex-wrap:wrap;gap:12px}
+  .payment-section{grid-template-columns:44px minmax(0,1fr);gap:12px}
+  .payment-section h2,.section h2,.download-section h2,.contact-section h2{overflow-wrap:anywhere}
+}
+@media(max-width:360px){
+  .hero h1{font-size:42px}
+  .hero-actions{align-items:stretch;flex-direction:column}
+  .hero-actions .button{width:100%}
+  .proof-strip div{flex-direction:column;gap:5px}
+  .payment-section h2{font-size:31px}
+}
