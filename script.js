@@ -599,3 +599,27 @@ document.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
     }
   });
 });
+
+
+// Downloads menu: reliable click, touch, keyboard, and outside-click behavior.
+document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+  const button = dropdown.querySelector('.nav-dropdown-toggle');
+  const menu = dropdown.querySelector('.nav-dropdown-menu');
+  if (!button || !menu) return;
+  const setOpen = open => {
+    dropdown.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+  };
+  button.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen(!dropdown.classList.contains('open'));
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', event => {
+    if (!dropdown.contains(event.target)) setOpen(false);
+  });
+  dropdown.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { setOpen(false); button.focus(); }
+  });
+});
