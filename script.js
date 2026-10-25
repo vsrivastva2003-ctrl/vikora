@@ -394,7 +394,7 @@ if (businessFinder) {
       sales:'CRM & sales', inventory:'Purchase & inventory', finance:'Accounts & finance',
       projects:'Projects & job costing', people:'HR & payroll / user permissions',
       reports:'Reports & MIS'
-    }[key])].filter(Boolean))];
+    }[key]))].filter(Boolean))];
     const teamLabel = {solo:'Single-user starting point',small:'Small team: compare single-user and multi-user options',medium:'Multi-user setup: review server + client requirements',large:'Larger team: confirm licensing and capacity with Vikora'}[team];
     const setupLabel = {one:'One computer',network:'Office server with connected client computers',unsure:'Setup consultation recommended'}[setup];
     const result = document.querySelector('#finder-result');
