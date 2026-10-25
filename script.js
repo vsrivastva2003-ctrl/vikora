@@ -363,3 +363,73 @@ if (tradeShowcase) {
   });
   renderTrade('retail');
 }
+
+
+// Business Needs Finder: local, illustrative guidance only; no data is sent to a server.
+const businessFinder = document.querySelector('#business-finder-form');
+if (businessFinder) {
+  const industryGuides = {
+    retail: {name:'Retail & shops',modules:['Sales & invoicing','Inventory & stock alerts','Purchase & suppliers','Accounts & reports'],note:'Start by reviewing how billing, stock movement, supplier purchases and daily sales summaries fit your shop workflow.'},
+    distribution: {name:'Wholesale & distribution',modules:['Sales & customer balances','Purchase & suppliers','Inventory & dispatch','Accounts & reports'],note:'Prioritize order fulfilment, stock availability, supplier activity and customer balances.'},
+    manufacturing: {name:'Manufacturing',modules:['Purchase & stores','Inventory & materials','Projects / job costing','Accounts & reports'],note:'Confirm whether your installation supports the production and job-tracking steps you need before choosing a plan.'},
+    services: {name:'Professional services',modules:['CRM & customer follow-up','Projects & team work','Billing & expenses','Accounts & reports'],note:'Review project tracking, customer records, billing and expense visibility with the Vikora team.'},
+    construction: {name:'Construction & projects',modules:['Projects & job tracking','Purchase & materials','Inventory / stores','Accounts & cost reports'],note:'Map project stages, material purchases and cost review to the modules available in your proposed setup.'},
+    hospitality: {name:'Hospitality',modules:['Sales & billing','Purchase & suppliers','Inventory & stock','HR & accounts'],note:'Explore how stock, purchasing, staffing records and financial reporting could fit your daily operation.'},
+    other: {name:'Mixed / other business',modules:['CRM & sales','Purchase & inventory','Accounts & finance','Reports & MIS'],note:'A short product demo is the best way to map your specific workflow to available modules.'}
+  };
+  const needLabels = {
+    sales:'Sales, CRM & invoicing', inventory:'Purchase, suppliers & inventory',
+    finance:'Accounts & finance', projects:'Projects & job tracking',
+    people:'Users, roles & HR / payroll', reports:'Reports & management dashboards'
+  };
+  businessFinder.addEventListener('submit', event => {
+    event.preventDefault();
+    const industryKey = document.querySelector('#finder-industry').value;
+    const team = document.querySelector('#finder-team').value;
+    const setup = document.querySelector('#finder-setup').value;
+    if (!industryKey || !team || !setup) return;
+    const guide = industryGuides[industryKey] || industryGuides.other;
+    const selectedNeeds = [...businessFinder.querySelectorAll('input[name="finder-need"]:checked')].map(input => input.value);
+    const modules = [...new Set([...guide.modules, ...selectedNeeds.map(key => ({
+      sales:'CRM & sales', inventory:'Purchase & inventory', finance:'Accounts & finance',
+      projects:'Projects & job costing', people:'HR & payroll / user permissions',
+      reports:'Reports & MIS'
+    }[key])].filter(Boolean))];
+    const teamLabel = {solo:'Single-user starting point',small:'Small team: compare single-user and multi-user options',medium:'Multi-user setup: review server + client requirements',large:'Larger team: confirm licensing and capacity with Vikora'}[team];
+    const setupLabel = {one:'One computer',network:'Office server with connected client computers',unsure:'Setup consultation recommended'}[setup];
+    const result = document.querySelector('#finder-result');
+    result.replaceChildren();
+    const icon = document.createElement('div'); icon.className='finder-result-icon'; icon.textContent='✳'; result.append(icon);
+    const kicker = document.createElement('span'); kicker.className='article-kicker'; kicker.textContent='YOUR PERSONALIZED STARTING POINT'; result.append(kicker);
+    const heading = document.createElement('h3'); heading.textContent=guide.name+' — a practical starting point'; result.append(heading);
+    const intro = document.createElement('p'); intro.textContent=guide.note; result.append(intro);
+    const summary = document.createElement('div'); summary.className='finder-result-preview';
+    [['YOUR TEAM',teamLabel],['PREFERRED SETUP',setupLabel],['MODULES TO EXPLORE',modules.join(' · ')]].forEach(([label,value])=>{
+      const caption=document.createElement('span'); caption.textContent=label;
+      const textNode=document.createElement('b'); textNode.textContent=value;
+      summary.append(caption,textNode);
+    });
+    result.append(summary);
+    if (selectedNeeds.length) {
+      const needsTitle=document.createElement('p'); needsTitle.textContent='Your selected priorities:'; result.append(needsTitle);
+      const list=document.createElement('ul'); list.className='finder-result-list';
+      selectedNeeds.forEach(key=>{const item=document.createElement('li');item.textContent=needLabels[key];list.append(item);});
+      result.append(list);
+    }
+    const plan=document.createElement('a'); plan.className='finder-plan'; plan.href='#plans';
+    plan.textContent=team==='solo'?'Explore the single-user licence':team==='small'?'Compare licence options':'Review multi-user licensing';
+    result.append(plan);
+    const note=document.createElement('p');note.className='finder-note';
+    note.textContent=team==='large'?'Your team may exceed the currently described multi-user setup (one server + up to nine clients). Confirm capacity, licence terms and available modules with Vikora before purchase.':'This is a recommendation to guide your demo, not a guarantee that every module is included in your chosen licence. Confirm current features, pricing and setup with Vikora.';
+    result.append(note);
+    const contact=document.createElement('a');contact.className='button button-lime';contact.href='#contact';contact.style.marginTop='18px';contact.textContent='Discuss my business needs ↗';
+    contact.addEventListener('click',()=>{
+      const topic=document.querySelector('#contact-form select[name="topic"]');
+      const message=document.querySelector('#contact-form textarea[name="message"]');
+      if(topic) topic.value='Book a free demo';
+      if(message) message.value='Business type: '+guide.name+'\nTeam: '+teamLabel+'\nSetup: '+setupLabel+'\nModules to explore: '+modules.join(', ')+'\nPriorities: '+(selectedNeeds.map(key=>needLabels[key]).join(', ')||'Open to guidance');
+    });
+    result.append(contact);
+    result.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+  });
+}
