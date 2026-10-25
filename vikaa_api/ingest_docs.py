@@ -85,11 +85,23 @@ def main() -> None:
             })
 
     output.parent.mkdir(parents=True, exist_ok=True)
+    # Preserve the existing starter articles and replace only previously ingested document chunks.
+    existing_articles = []
+    if output.exists():
+        try:
+            existing = json.loads(output.read_text(encoding="utf-8"))
+            existing_articles = [
+                item for item in existing.get("articles", [])
+                if not item.get("verified_product_documentation", False)
+            ]
+        except (OSError, json.JSONDecodeError):
+            raise SystemExit(f"Existing knowledge base is invalid JSON: {output}; refusing to overwrite it.")
+
     payload = {
         "title": "Vikora-One support knowledge base",
         "version": 2,
-        "notice": "Contains approved documentation supplied to the ingestion process plus starter guidance. Check each article's source and verification status.",
-        "articles": articles
+        "notice": "Contains general starter guidance and ingested approved documentation. Check each article's source and verification status.",
+        "articles": existing_articles + articles
     }
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Ingested {len(documents)} documents into {len(articles)} searchable sections.")
