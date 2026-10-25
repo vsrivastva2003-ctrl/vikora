@@ -1,0 +1,154 @@
+{
+  "title": "Vikora-One verified support knowledge base",
+  "version": 1,
+  "notice": "Starter guidance only. These entries are general ERP guidance and are not a substitute for verified edition-specific Vikora-One manuals. Add approved product documentation before treating exact menus or features as confirmed.",
+  "articles": [
+    {
+      "id": "sales-entry-basics",
+      "title": "Sales entry: safe checklist",
+      "keywords": [
+        "sales",
+        "sale",
+        "invoice",
+        "customer invoice",
+        "sales entry",
+        "billing",
+        "bill customer",
+        "sales voucher"
+      ],
+      "content": "For a sales transaction, identify whether the document is a quotation, order, delivery, invoice, or receipt; these are not interchangeable. Confirm customer, company/branch, date, item/service, quantity, rate, discount authority, tax treatment, and payment/credit terms before saving. Check the saved document and related stock/accounts impact only if those integrations are enabled in the customer's setup. Exact screen names and posting behavior must be confirmed from the installed Vikora-One edition."
+    },
+    {
+      "id": "purchase-entry-basics",
+      "title": "Purchase and supplier bill: safe checklist",
+      "keywords": [
+        "purchase",
+        "supplier",
+        "vendor",
+        "supplier bill",
+        "purchase invoice",
+        "goods receipt",
+        "purchase entry",
+        "vendor bill"
+      ],
+      "content": "First distinguish a purchase order, goods receipt, supplier invoice, and supplier payment. Match supplier, supplier invoice number/date, items, quantities received, rates, tax, freight/other charges, and supporting documents. Check for duplicates before recording a bill. Confirm whether stock and accounts update at receipt, invoice, or posting time in the installed configuration; do not assume the workflow."
+    },
+    {
+      "id": "inventory-stock-check",
+      "title": "Inventory mismatch or incorrect stock",
+      "keywords": [
+        "inventory",
+        "stock",
+        "stock mismatch",
+        "wrong stock",
+        "negative stock",
+        "quantity mismatch",
+        "warehouse",
+        "item balance",
+        "stock ledger"
+      ],
+      "content": "For a stock mismatch, record the item code, location/warehouse, unit of measure, date range, and report used. Compare opening balance plus receipts and approved adjustments minus issues/dispatches with the displayed closing balance. Check duplicate entries, unposted documents, wrong units, wrong warehouse, backdated transactions, and filters. Do not make an adjustment until source documents and authorization are checked. Report names and automatic posting behavior vary by edition/setup."
+    },
+    {
+      "id": "accounts-entry-checks",
+      "title": "Accounts entries and debit/credit checks",
+      "keywords": [
+        "accounts",
+        "accounting",
+        "ledger",
+        "journal",
+        "debit",
+        "credit",
+        "expense",
+        "payment",
+        "receipt",
+        "trial balance"
+      ],
+      "content": "Identify the underlying transaction first: supplier bill, customer invoice, receipt, payment, expense, or journal adjustment. Prefer the dedicated transaction workflow when available rather than duplicating it with a manual journal. Verify company/branch, date, ledger accounts, debit/credit balance, reference, and supporting evidence. For tax, payroll, statutory, or period-close decisions, confirm with the customer's accountant or authorized administrator before posting."
+    },
+    {
+      "id": "reports-not-matching",
+      "title": "Reports do not match expected totals",
+      "keywords": [
+        "report",
+        "reports",
+        "mis",
+        "dashboard",
+        "totals mismatch",
+        "report mismatch",
+        "balance sheet",
+        "profit",
+        "sales report",
+        "financial report"
+      ],
+      "content": "When report totals differ, first verify company/branch, date range, status/posting filters, currency, and access scope. Compare the report total to the underlying transaction list for the same filters; inspect unposted, cancelled, duplicated, backdated, or excluded records. Export only through approved features and protect customer data. Available reports and their calculation rules must be verified in the customer's edition."
+    },
+    {
+      "id": "user-permission-access",
+      "title": "Login, access, and missing modules",
+      "keywords": [
+        "login",
+        "log in",
+        "access denied",
+        "permission",
+        "role",
+        "user",
+        "cannot access",
+        "module missing",
+        "module not visible",
+        "sign in"
+      ],
+      "content": "Check whether the issue affects one user or multiple users. Confirm the correct company/branch and username, then ask an administrator to verify account status, role, module permissions, branch scope, and licence entitlement. Capture the exact error with personal information redacted. Never request or share passwords, OTPs, or secret licence keys. Do not bypass permissions."
+    },
+    {
+      "id": "client-server-network",
+      "title": "Client computer cannot connect to server",
+      "keywords": [
+        "network",
+        "networking",
+        "client computer",
+        "client pc",
+        "server connection",
+        "cannot connect to server",
+        "lan",
+        "wifi",
+        "vpn",
+        "ping",
+        "server not reachable",
+        "workstation"
+      ],
+      "content": "Compare whether one or all client PCs are affected. Check server power and approved services without restarting a production server without approval. Confirm the client is on the approved LAN/Wi-Fi or VPN. Have IT verify the configured server hostname/IP and name resolution. Test reachability if permitted, noting ping may be blocked even when a service works. Have IT check the documented application service/port and firewall rules; never disable firewalls, guess ports, or expose database ports publicly. Record the exact error and when it began."
+    },
+    {
+      "id": "licence-multi-user",
+      "title": "Licence and multi-user setup",
+      "keywords": [
+        "licence",
+        "license",
+        "activation",
+        "expiry",
+        "renewal",
+        "multi user",
+        "multi-user",
+        "server",
+        "client setup",
+        "seat limit"
+      ],
+      "content": "Check the official licence documents for licence type, expiry, registered installation/server, and permitted users/seats. For server/client installations, follow the installation-specific instructions and have the administrator verify configuration. Do not share secret keys or bypass licence limits. Contact Vikora support if the licence status or permitted capacity is unclear."
+    },
+    {
+      "id": "support-ticket",
+      "title": "What to include when contacting support",
+      "keywords": [
+        "support",
+        "contact support",
+        "raise ticket",
+        "escalate",
+        "still not working",
+        "help desk",
+        "contact vikora"
+      ],
+      "content": "Provide the Vikora-One edition/version if known, module/screen, what you were trying to do, exact error text, approximate time, whether one or all users are affected, and troubleshooting already tried. Redact customer names, personal information, financial details, passwords, OTPs, database credentials, and licence secrets. Contact hello@vikora.com or +91 99117 18105 for installation-specific help."
+    }
+  ]
+}
