@@ -233,3 +233,26 @@ body{font-size:16px;line-height:1.65}
   .section h2,.download-section h2,.contact-section h2{font-size:clamp(38px,10vw,46px)}
   .footer-links{font-size:12px}
 }
+
+
+/* Franchise and business-partner enquiry */
+.franchise-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.85fr);gap:clamp(36px,6vw,100px);align-items:start;padding:100px max(calc((100% - 1320px)/2),7%);background:#f5f4ed}
+.franchise-copy h2{font:600 clamp(38px,4vw,58px)/1.1 Manrope,sans-serif;letter-spacing:-2.6px;margin:18px 0}
+.franchise-copy h2 em{font-style:normal;color:#829c36}
+.franchise-copy>p{max-width:620px;color:#64716a;font-size:16px;line-height:1.8}
+.franchise-points{display:grid;gap:18px;margin:30px 0}
+.franchise-points>div{display:flex;gap:15px;align-items:start}
+.franchise-points>div>span{font:700 14px Manrope;color:#829c36}
+.franchise-points b,.franchise-points small{display:block}
+.franchise-points b{font-size:16px}
+.franchise-points small{font-size:14px;color:#718078;margin-top:3px}
+.franchise-copy .franchise-note{font-size:12px;line-height:1.7;color:#818b84}
+.franchise-form{background:#fffefa;padding:clamp(22px,3vw,36px);border:1px solid #e2e5d9;box-shadow:0 16px 45px #26322c0a}
+.franchise-form h3{font:700 27px Manrope;letter-spacing:-.8px;margin:12px 0 22px}
+.franchise-form label{display:block;font-size:13px;font-weight:700;margin-bottom:15px}
+.franchise-form input,.franchise-form select,.franchise-form textarea{display:block;width:100%;margin-top:7px;border:1px solid #e2e6dc;background:#fffefa;border-radius:3px;padding:12px;font-size:14px;color:#34403c;outline:none}
+.franchise-form input:focus,.franchise-form select:focus,.franchise-form textarea:focus{border-color:#9bb345}
+.franchise-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.franchise-form .button{width:100%;font-size:14px;min-height:50px}
+.franchise-form .form-note{font-size:12px;line-height:1.5}
+@media(max-width:800px){.franchise-section{grid-template-columns:1fr;padding:64px 22px;gap:28px}.franchise-copy h2{font-size:clamp(36px,8vw,48px);letter-spacing:-1.8px}.franchise-copy>p{font-size:15px}.franchise-fields{grid-template-columns:1fr;gap:0}.franchise-form{padding:22px}}
