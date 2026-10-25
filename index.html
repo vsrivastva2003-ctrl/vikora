@@ -19,7 +19,7 @@
     <a class="brand brand-image" href="#home" aria-label="Vikora-One home"><img src="images/vikora-one-logo.svg" alt="Vikora-One — One Platform. Endless Possibilities."></a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#guide">Tutorial</a><a href="#about">About</a><a href="#plans">Plans</a><a href="#downloads">Downloads</a><a href="#payments">Payments</a><a href="#contact">Contact</a>
+      <a href="#guide">Tutorial</a><a href="#about">About</a><a href="#plans">Plans</a><a href="#downloads">Downloads</a><a href="#payments">Payments</a><a href="#franchise">Franchise</a><a href="#contact">Contact</a>
       <a class="nav-cta" href="#plans">Buy / Rent <span>↗</span></a>
     </nav>
   </header>
@@ -105,10 +105,41 @@
 
     <section class="payment-section" id="payments"><div class="payment-icon">↗</div><div><div class="eyebrow dark-eyebrow">SIMPLE & SECURE</div><h2>Pay the way<br>that works <em>for you.</em></h2><p>We’ll share the available payment methods, billing details, and any regional options before you make a purchase or start a rental.</p></div><a class="button button-outline" href="#contact">Ask about payment <span>↗</span></a></section>
 
+    <section class="franchise-section" id="franchise">
+      <div class="franchise-copy">
+        <div class="eyebrow dark-eyebrow">GROW WITH VIKORA</div>
+        <h2>Build the next chapter<br>as a <em>Vikora partner.</em></h2>
+        <p>Interested in expanding your business with Vikora-One? Tell us about yourself and your market. Our team can discuss potential franchise or business-partner opportunities, the onboarding process, and next steps.</p>
+        <div class="franchise-points">
+          <div><span>01</span><div><b>Explore the opportunity</b><small>Discuss your market, goals, and fit.</small></div></div>
+          <div><span>02</span><div><b>Connect with our team</b><small>Share your experience and business plans.</small></div></div>
+          <div><span>03</span><div><b>Review next steps</b><small>Terms and availability are discussed directly.</small></div></div>
+        </div>
+        <p class="franchise-note">Submitting an enquiry does not guarantee approval or establish a franchise agreement. Commercial terms are subject to discussion and written confirmation.</p>
+      </div>
+      <form class="franchise-form" id="franchise-form">
+        <div class="eyebrow dark-eyebrow">PARTNER ENQUIRY</div>
+        <h3>Let’s talk business.</h3>
+        <label>Full name<input name="name" autocomplete="name" placeholder="Your full name" required></label>
+        <div class="franchise-fields">
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="+91 ..." required></label>
+        </div>
+        <div class="franchise-fields">
+          <label>City / state<input name="location" autocomplete="address-level2" placeholder="Where you plan to operate" required></label>
+          <label>Business experience<select name="experience" required><option value="">Choose one</option><option>Starting a new business</option><option>Existing business owner</option><option>Sales / distribution experience</option><option>Technology / IT services</option></select></label>
+        </div>
+        <label>Investment range (optional)<select name="investment"><option value="">Prefer to discuss</option><option>Under ₹5 lakh</option><option>₹5–10 lakh</option><option>₹10–25 lakh</option><option>₹25 lakh+</option></select></label>
+        <label>Tell us about your plan<textarea name="message" rows="3" placeholder="Your market, goals, or questions"></textarea></label>
+        <button class="button button-lime" type="submit">Enquire about partnership <span>↗</span></button>
+        <p class="form-note" id="franchise-note" role="status">Your email app will open with your enquiry ready to send.</p>
+      </form>
+    </section>
+
     <section class="contact-section" id="contact"><div class="contact-copy"><div class="eyebrow">WE’RE HERE TO HELP</div><h2>Questions?<br>We’re all <em>ears.</em></h2><p>Need a hand with the guide, want to talk plans, or simply curious about Vikora? Send us a note and we’ll point you in the right direction.</p><div class="contact-methods"><div class="contact-method"><span class="method-icon">✉</span><div><small>EMAIL SUPPORT</small><a class="contact-email" href="mailto:hello@vikora.com">hello@vikora.com <span>↗</span></a></div></div><div class="contact-method"><span class="method-icon">☎</span><div><small>CALL US · 9 AM–6 PM</small><a class="contact-phone-number" href="tel:+919911718105">+91 99117 18105</a></div></div><div class="contact-method office-address"><span class="method-icon">⌖</span><div><small>HEAD OFFICE</small><address>House No. 77, Baniahir No. 10,<br>Near DAV School, Bhaga,<br>Dhanbad – 828301, Jharkhand</address><a class="directions-link" href="https://www.google.com/maps/search/?api=1&amp;query=House+No.+77%2C+Baniahir+No.+10%2C+Near+DAV+School%2C+Bhaga%2C+Dhanbad+828301%2C+Jharkhand" target="_blank" rel="noopener noreferrer">Get directions ↗</a></div></div><div class="contact-method office-address"><span class="method-icon">⌖</span><div><small>REGISTERED OFFICE</small><address>G-33, 2nd Floor, Main Road,<br>Kalkaji, New Delhi – 110019</address></div></div></div></div><form class="contact-form" id="contact-form"><label>Your name<input name="name" placeholder="What should we call you?" required></label><label>Email address<input name="email" type="email" placeholder="you@example.com" required></label><label>What can we help with?<select name="topic"><option>Getting started</option><option>Buying Vikora</option><option>Renting Vikora</option><option>Downloads</option><option>Book a free demo</option><option>Payment options</option><option>Something else</option></select></label><label>Your message<textarea name="message" placeholder="Tell us a little about it..." rows="3" required></textarea></label><button class="button button-lime" type="submit">Send your message <span>↗</span></button><p class="form-note" id="form-note">We’ll use your details to reply to your message.</p></form></section>
   </main>
 
-  <footer class="footer"><a class="brand footer-brand brand-image" href="#home" aria-label="Vikora-One home"><img src="images/vikora-one-logo.svg" alt="Vikora-One — One Platform. Endless Possibilities."></a><p>Thoughtful tools for your next move.</p><div class="footer-links"><a href="#guide">Getting started</a><a href="#plans">Plans</a><a href="#about">About us</a><a href="#contact">Contact</a><a href="#downloads">Downloads</a></div><div class="footer-bottom"><span>© 2025 Vikora. Made with intention.</span><div><a href="#contact">Privacy</a><a href="#contact">Terms</a></div><a href="#home">BACK TO TOP ↑</a></div></footer>
+  <footer class="footer"><a class="brand footer-brand brand-image" href="#home" aria-label="Vikora-One home"><img src="images/vikora-one-logo.svg" alt="Vikora-One — One Platform. Endless Possibilities."></a><p>Thoughtful tools for your next move.</p><div class="footer-links"><a href="#guide">Getting started</a><a href="#plans">Plans</a><a href="#about">About us</a><a href="#franchise">Franchise / Partners</a><a href="#contact">Contact</a><a href="#downloads">Downloads</a></div><div class="footer-bottom"><span>© 2025 Vikora. Made with intention.</span><div><a href="#contact">Privacy</a><a href="#contact">Terms</a></div><a href="#home">BACK TO TOP ↑</a></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
