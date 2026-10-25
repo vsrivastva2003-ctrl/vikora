@@ -420,3 +420,12 @@ body{font-size:16px;line-height:1.65}
 .vikaa-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:600px){.vikaa-widget{right:12px;bottom:12px}.vikaa-launcher{min-width:0;padding:10px 12px;border-radius:16px}.vikaa-launcher-icon{width:36px;height:36px}.vikaa-launcher>span:nth-child(2) b{font-size:.84rem}.vikaa-launcher>span:nth-child(2) small{font-size:.65rem}.vikaa-panel{bottom:68px;width:calc(100vw - 24px);height:min(650px,calc(100dvh - 100px));min-height:390px;border-radius:20px}.vikaa-quick-prompts{gap:6px}.vikaa-quick-prompts button{font-size:.67rem}}
 @media(prefers-reduced-motion:reduce){.vikaa-panel{animation:none}.vikaa-launcher{transition:none}}
+
+
+/* Vikora brand polish: subtle, accessible logo interaction */
+.brand-image img{transform-origin:left center;transition:transform .28s ease,filter .28s ease;will-change:transform}
+.brand-image:hover img,.brand-image:focus-visible img{transform:translateY(-2px) scale(1.025);filter:drop-shadow(0 5px 8px rgba(23,59,50,.16))}
+.brand-image:focus-visible{outline:2px solid #9fc66b;outline-offset:5px;border-radius:8px}
+.hero-product-logo{max-width:240px;height:auto;margin:0 0 18px;transition:transform .35s ease,filter .35s ease;transform-origin:left center}
+.hero-product-logo:hover{transform:translateY(-3px) scale(1.025);filter:drop-shadow(0 8px 12px rgba(23,59,50,.14))}
+@media(prefers-reduced-motion:reduce){.brand-image img,.hero-product-logo{transition:none}.brand-image:hover img,.brand-image:focus-visible img,.hero-product-logo:hover{transform:none}}
