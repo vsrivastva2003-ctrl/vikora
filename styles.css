@@ -460,3 +460,23 @@ body{background:#f4f2fb;color:var(--ink)}
 .nav-dropdown-menu small{display:block;margin-top:2px;font-size:11px;font-weight:500;color:#74788c}
 @media(max-width:900px){.nav-dropdown{display:block;width:100%}.nav-dropdown-toggle{width:100%;text-align:left;padding:12px 0}.nav-dropdown-menu{position:static;box-shadow:none;margin:0 0 8px;width:100%;border-radius:10px}.nav-dropdown.open .nav-dropdown-menu{display:block}}
 @media(prefers-reduced-motion:reduce){.nav-dropdown-toggle span{transition:none}}
+
+
+/* Final contact page: stronger contrast and clearer text */
+.contact-section{background:linear-gradient(135deg,#252842 0%,#34345b 58%,#244b55 100%);color:#fff}
+.contact-section h2,.contact-section h2 em{color:#fff}
+.contact-section h2 em{color:#d5f36b}
+.contact-section .eyebrow,.contact-section .contact-method small{color:#dce6a9}
+.contact-section .contact-copy>p{color:#eef0fa}
+.contact-section .contact-email,.contact-section .contact-phone-number{color:#fff}
+.contact-section .contact-email span{color:#d5f36b}
+.contact-section .method-icon{background:#d5f36b;color:#20243a}
+.contact-section .contact-form{background:#fff;color:#20243a;border-color:#d8d9ef;box-shadow:0 18px 45px #10122635}
+.contact-section .contact-form label{color:#252842}
+.contact-section .contact-form input,.contact-section .contact-form select,.contact-section .contact-form textarea{background:#fbfbff;color:#20243a;border-color:#c9cce0}
+.contact-section .contact-form input::placeholder,.contact-section .contact-form textarea::placeholder{color:#69708a}
+.contact-section .form-note{color:#626981}
+.footer{background:#17192d;color:#fff}
+.footer>p,.footer-bottom,.footer-bottom>a:last-child{color:#c5c9df}
+.footer-links{border-color:#454762}
+.footer a:hover{color:#d5f36b}
