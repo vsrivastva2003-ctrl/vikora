@@ -114,3 +114,36 @@ main{background:linear-gradient(180deg,#fbfaf5 0%,var(--cream) 45%,#f4f4ed 100%)
 .about-details-cta{background:linear-gradient(110deg,#edf5d6,#f8f1e6)}
 ::selection{background:#d5f36b;color:#172223}
 @media(max-width:600px){.brand-image img{width:154px;max-height:43px}.hero-product-logo{width:min(270px,84%);max-height:62px}}
+
+
+/* Vikora public website refresh: forest green, warm ivory, and lime */
+:root{--cream:#f5f5ec;--paper:#fffef8;--ink:#16382f;--muted:#60756c;--line:#dce5d9;--lime:#d6f36b;--lime-strong:#c5e852;--brand-dark:#12352e}
+html,body{background-color:#f5f5ec;color:#16382f}
+body{background-image:radial-gradient(ellipse at 8% 3%,#e9f2d4 0,transparent 32%),radial-gradient(ellipse at 94% 24%,#f7ead7 0,transparent 26%),linear-gradient(180deg,#fffef8 0%,#f5f5ec 55%,#f1f3e7 100%)}
+main{background:linear-gradient(180deg,#fffef8 0%,#f5f5ec 48%,#f1f3e7 100%)}
+.site-header{background:rgba(255,254,248,.96);border-bottom:1px solid #dce5d9}
+.nav-links>a:not(.nav-cta):hover,.footer a:hover{color:#85a92b}
+.nav-cta,.button-lime{background:#d6f36b!important;color:#16382f!important;border-color:#d6f36b!important}
+.nav-cta:hover,.button-lime:hover{background:#c5e852!important;border-color:#c5e852!important}
+.hero{background:radial-gradient(ellipse at 78% 42%,#e5efc9 0,transparent 40%),radial-gradient(ellipse at 7% 90%,#f8e8d8 0,transparent 35%),linear-gradient(135deg,#fffef8 0%,#f5f5ec 60%,#edf2dd 100%)}
+.hero h1 em,.section h2 em,.manifesto h2 em,.download-section h2 em,.payment-section h2 em,.contact-section h2 em{color:#83a72b}
+.eyebrow,.article-kicker{color:#5b7d23}
+.proof-strip{background:linear-gradient(100deg,#e8f0d4,#f7f4e8 52%,#f7eadd)}
+.guide-card,.plan-card,.tutorial-manual,.contact-form{border-color:#dce5d9}
+.guide-feature,.plan-highlight{background:linear-gradient(145deg,#e9f2d5,#f7f5e9)}
+.manifesto,.download-section{background:linear-gradient(125deg,#12352e,#1d493b 70%,#2c5943);color:#fff}
+.manifesto-orb{background:radial-gradient(circle at 40% 45%,#b4d95b40,#12352e 70%)}
+.download-symbol{background:#d6f36b;color:#16382f}
+.payment-section{background:rgba(255,254,248,.94);border-color:#dce5d9}
+.payment-icon,.method-icon{background:#e5efcf;color:#527624}
+.contact-section{background:radial-gradient(ellipse at 15% 10%,#e6efcf 0,transparent 38%),radial-gradient(ellipse at 94% 80%,#f7e8d8 0,transparent 34%),linear-gradient(135deg,#f0f3e5,#f7f0e5)}
+.footer{background:linear-gradient(125deg,#102e28,#163d33 70%,#244b38);color:#f3f5e9}
+.footer>p,.footer-bottom{color:#c2d1c3}
+.footer-links{border-color:#ffffff2b;color:#e1eadf}
+.footer-bottom>a:last-child{color:#d6f36b}
+.contact-email,.contact-phone-number,.directions-link{color:#527624}
+.showcase-dot.is-active{background:#85aa2b}
+.showcase-progress i{background:linear-gradient(90deg,#83a72b,#d6f36b)}
+.tutorial-intro,.about-details-cta{background:linear-gradient(110deg,#e9f2d5,#f7f3e6);border-color:#dce5d9}
+.tutorial-intro-icon{background:#d6f36b;color:#16382f}
+::selection{background:#d6f36b;color:#16382f}
