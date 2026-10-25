@@ -1,4 +1,7 @@
+import json
 import os
+import re
+from pathlib import Path
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException
@@ -6,7 +9,33 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from openai import OpenAI
 
-app = FastAPI(title="VIKAA Support API", version="1.0.0")
+app = FastAPI(title="VIKAA Support API", version="1.1.0")
+
+KNOWLEDGE_PATH = Path(__file__).with_name("knowledge_base.json")
+try:
+    KNOWLEDGE_BASE = json.loads(KNOWLEDGE_PATH.read_text(encoding="utf-8"))
+    KNOWLEDGE_ARTICLES = KNOWLEDGE_BASE.get("articles", [])
+except (OSError, json.JSONDecodeError):
+    KNOWLEDGE_BASE = {"title": "VIKAA support knowledge base", "version": 1}
+    KNOWLEDGE_ARTICLES = []
+
+
+def retrieve_knowledge(question: str, limit: int = 3) -> list[dict]:
+    """Simple local retrieval over approved JSON support notes; no customer data is stored."""
+    normalized = re.sub(r"[^a-z0-9\s-]", " ", question.lower())
+    terms = {term for term in normalized.split() if len(term) > 2}
+    ranked = []
+    for article in KNOWLEDGE_ARTICLES:
+        title = article.get("title", "").lower()
+        keywords = [str(value).lower() for value in article.get("keywords", [])]
+        body_terms = set(re.sub(r"[^a-z0-9\s-]", " ", article.get("content", "").lower()).split())
+        score = sum(3 for keyword in keywords if keyword in normalized)
+        score += sum(1 for term in terms if term in title.split())
+        score += sum(0.25 for term in terms if term in body_terms)
+        if score > 0:
+            ranked.append((score, article))
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return [article for _, article in ranked[:limit]]
 
 # Restrict browser callers to the official Vikora site; configure VIKAA_ALLOWED_ORIGIN in Render if the domain changes.
 allowed_origin = os.getenv("VIKAA_ALLOWED_ORIGIN", "https://vikora-b4yt.onrender.com").rstrip("/")
@@ -41,7 +70,23 @@ class ChatRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "VIKAA Support API", "ai_configured": bool(os.getenv("OPENAI_API_KEY"))}
+    return {
+        "status": "ok",
+        "service": "VIKAA Support API",
+        "ai_configured": bool(os.getenv("OPENAI_API_KEY")),
+        "knowledge_base_articles": len(KNOWLEDGE_ARTICLES),
+        "knowledge_base_version": KNOWLEDGE_BASE.get("version", 1),
+    }
+
+
+@app.get("/api/knowledge")
+def knowledge_status():
+    return {
+        "title": KNOWLEDGE_BASE.get("title", "VIKAA support knowledge base"),
+        "version": KNOWLEDGE_BASE.get("version", 1),
+        "article_count": len(KNOWLEDGE_ARTICLES),
+        "articles": [{"id": a.get("id"), "title": a.get("title")} for a in KNOWLEDGE_ARTICLES],
+    }
 
 @app.post("/api/chat")
 def chat(payload: ChatRequest):
@@ -50,7 +95,14 @@ def chat(payload: ChatRequest):
         raise HTTPException(status_code=503, detail="VIKAA AI is not configured yet. Please contact Vikora support at hello@vikora.com.")
     try:
         client = OpenAI(api_key=api_key)
-        messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+        retrieved = retrieve_knowledge(payload.message)
+        knowledge_context = ""
+        if retrieved:
+            note_blocks = []
+            for item in retrieved:
+                note_blocks.append("Article: " + item.get("title", "Support note") + "\n" + item.get("content", ""))
+            knowledge_context = "\n\nRelevant support knowledge-base notes (starter guidance; not proof of edition-specific features):\n" + "\n\n".join(note_blocks)
+        messages = [{"role": "system", "content": SYSTEM_PROMPT + knowledge_context}]
         # Only accept a short, role-validated history; do not trust client-supplied system messages.
         messages.extend({"role": item.role, "content": item.content} for item in payload.history[-8:])
         messages.append({"role": "user", "content": payload.message})
