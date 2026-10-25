@@ -352,3 +352,45 @@ body{font-size:16px;line-height:1.65}
 .finder-result .finder-note{font-size:12px;color:#aebbb2;margin-top:20px}
 @media(max-width:850px){.finder-heading{grid-template-columns:1fr;gap:18px}.finder-layout{grid-template-columns:1fr}.finder-result{position:static;min-height:0}}
 @media(max-width:560px){.business-finder-section{padding:60px 18px}.finder-heading h2{font-size:40px;letter-spacing:-1.8px}.finder-form,.finder-result{padding:21px}.finder-needs{grid-template-columns:1fr}.finder-result h3{font-size:25px}}
+
+
+/* Tutorial deep-dive: module guidance and illustrative report dashboard */
+.tutorial-deep-dive{margin-top:clamp(42px,6vw,78px)}
+.tutorial-deep-heading{display:flex;justify-content:space-between;align-items:end;gap:34px;margin-bottom:28px}
+.tutorial-deep-heading>div{max-width:600px}
+.tutorial-deep-heading h3,.report-lab-copy h3{font-family:Manrope,sans-serif;font-size:clamp(2rem,4vw,3.6rem);line-height:1.08;letter-spacing:-.055em;margin:12px 0 0}
+.tutorial-deep-heading h3 em,.report-lab-copy h3 em{font-style:normal;color:#738c3e}
+.tutorial-deep-heading>p{max-width:430px;color:#64685f;line-height:1.75;margin:0}
+.module-learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.module-learning-card{position:relative;overflow:hidden;min-height:270px;padding:27px;border:1px solid #e5e5d9;border-radius:24px;background:#fffefa}
+.module-learning-card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-65px;top:-70px;background:var(--module-glow);opacity:.7}
+.module-sales{--module-glow:#e4edc8;--module-color:#58702e}.module-stock{--module-glow:#d9e9e6;--module-color:#2b716b}.module-project{--module-glow:#f4dfc9;--module-color:#a45c2a}
+.module-orb{display:grid;place-items:center;width:46px;height:46px;border-radius:15px;background:var(--module-glow);color:var(--module-color);font-size:1.4rem;margin-bottom:25px}
+.module-learning-card .article-kicker{font-size:.68rem;letter-spacing:.12em;color:var(--module-color);font-weight:800}
+.module-learning-card h4{font:700 1.35rem Manrope,sans-serif;letter-spacing:-.035em;margin:10px 0}
+.module-learning-card p{font-size:.92rem;line-height:1.7;color:#65685f;min-height:92px}
+.module-path{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px}
+.module-path span{font-size:.72rem;font-weight:700;background:#f1f1e8;border-radius:9px;padding:8px 10px}
+.module-path i{font-style:normal;color:var(--module-color)}
+.module-tip{display:flex;gap:14px;align-items:flex-start;padding:18px 22px;margin-top:18px;border-radius:18px;background:#eaf0dc;color:#37442a}
+.module-tip>span{font-size:1.4rem}.module-tip p{margin:0;line-height:1.65}
+.tutorial-report-lab{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,78px);align-items:center;margin-top:clamp(54px,8vw,100px);padding:clamp(24px,4vw,54px);border-radius:30px;background:#f0f0e8}
+.report-lab-copy h3{margin-bottom:18px}.report-lab-copy>p{line-height:1.75;color:#66695f}
+.report-selector{display:grid;gap:9px;margin:25px 0}
+.report-choice{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;padding:13px 15px;border:1px solid #dcded1;border-radius:13px;background:#fafaf5;color:#41463a;font:600 .9rem "DM Sans",sans-serif;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.report-choice:hover{transform:translateX(3px)}.report-choice.is-active{background:#273324;color:#fff;border-color:#273324}.report-choice span{font-size:1.1rem}
+.report-learning-note{border-left:3px solid #8ca65a;padding:2px 0 2px 15px}.report-learning-note b{font-family:Manrope,sans-serif}.report-learning-note p{font-size:.9rem;line-height:1.65;color:#65685f;margin:7px 0 0}
+.report-dashboard{min-width:0;padding:25px;border:1px solid #e4e5d9;border-radius:23px;background:#fffefa;box-shadow:0 22px 60px #343c2410}
+.report-dashboard-top,.report-chart-head,.report-dashboard-foot{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.report-dashboard-top{padding-bottom:19px;border-bottom:1px solid #edeee6;font-size:.68rem;font-weight:800;letter-spacing:.08em}
+.report-dashboard-top>div{display:flex;align-items:center;gap:8px}.report-live-dot{width:8px;height:8px;border-radius:50%;background:#91ad5a}.report-period,.report-chart-head>span{font-size:.64rem;color:#8a8d82;letter-spacing:0;font-weight:500}
+.report-metric-row{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.report-metric-row>div:first-child>span,.report-metric-row>div:first-child>small{display:block;color:#797d72;font-size:.78rem}.report-metric-row strong{display:block;font:800 clamp(1.8rem,3vw,2.5rem) Manrope,sans-serif;letter-spacing:-.06em;margin:5px 0}.report-metric-row>div:first-child>small{font-size:.7rem}
+.report-ring-wrap{display:flex;flex-direction:column;align-items:center;gap:7px}.report-ring{--ring-progress:72%;width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#8ca65a var(--ring-progress),#e9ebdf var(--ring-progress));position:relative}.report-ring:before{content:"";position:absolute;inset:8px;background:#fffefa;border-radius:50%}.report-ring>span{position:relative;font:800 1.05rem Manrope,sans-serif}.report-ring>span small{font-size:.65rem}.report-ring-wrap>span{font-size:.65rem;color:#777b70}
+.report-chart-area{padding:18px 17px 12px;background:#f7f7f0;border-radius:15px}.report-chart-head b{font:700 .85rem Manrope,sans-serif}
+.report-chart{height:190px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:end;padding-top:20px;background:repeating-linear-gradient(to top,transparent 0,transparent 46px,#e8e9df 47px,#e8e9df 48px)}
+.report-bar-column{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:7px;min-width:0}.report-bar-column>span{font-size:.63rem;color:#777b70}.report-bar-column>i{display:block;width:min(100%,30px);min-height:5px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#b4ca7e,#6f8b43);transition:height .35s ease}.report-bar-column>small{font-size:.65rem;color:#777b70}
+.report-dashboard-foot{margin-top:16px;font-size:.63rem;color:#8a8d82}.report-dashboard-foot>span:first-child{display:flex;align-items:center;gap:7px}.report-legend-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8ca65a}
+@media(max-width:900px){.module-learning-grid{grid-template-columns:1fr 1fr}.module-learning-card:last-child{grid-column:1/-1}.tutorial-report-lab{grid-template-columns:1fr}.tutorial-deep-heading{align-items:start;flex-direction:column}}
+@media(max-width:600px){.module-learning-grid{grid-template-columns:1fr}.module-learning-card:last-child{grid-column:auto}.module-learning-card{min-height:0;padding:22px}.module-learning-card p{min-height:0}.tutorial-report-lab{padding:20px;border-radius:22px}.report-dashboard{padding:15px}.report-period{max-width:100px;text-align:right}.report-chart{gap:6px}.report-dashboard-foot{align-items:flex-start;flex-direction:column}.tutorial-deep-heading h3,.report-lab-copy h3{font-size:2.15rem}}
+@media(prefers-reduced-motion:reduce){.report-bar-column>i,.report-choice{transition:none}}
