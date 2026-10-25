@@ -2,6 +2,8 @@ import hashlib
 import hmac
 import os
 import secrets
+import smtplib
+from email.message import EmailMessage
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -24,8 +26,10 @@ RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "")
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "")
 RAZORPAY_WEBHOOK_SECRET = os.getenv("RAZORPAY_WEBHOOK_SECRET", "")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
-EMAIL_FROM = os.getenv("EMAIL_FROM", "")
-EMAIL_TO = os.getenv("EMAIL_TO", "")
+GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS", "")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD", "")
+EMAIL_FROM = os.getenv("EMAIL_FROM", GMAIL_ADDRESS)
+EMAIL_TO = os.getenv("EMAIL_TO", GMAIL_ADDRESS)
 FRONTEND_URL = os.getenv("FRONTEND_URL", "https://vikora-b4yt.onrender.com").rstrip(" /")
 MONTHLY_SINGLE_PLAN_ID = os.getenv("RAZORPAY_MONTHLY_SINGLE_PLAN_ID", "")
 MONTHLY_MULTI_PLAN_ID = os.getenv("RAZORPAY_MONTHLY_MULTI_PLAN_ID", "")
@@ -95,19 +99,36 @@ class ContactRequest(BaseModel):
     message: str = Field(min_length=1, max_length=5000)
 
 def send_email(to: str, subject: str, html: str) -> bool:
-    if not (RESEND_API_KEY and EMAIL_FROM):
-        return False
-    try:
-        response = httpx.post(
-            "https://api.resend.com/emails",
-            headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
-            json={"from": EMAIL_FROM, "to": [to], "subject": subject, "html": html},
-            timeout=12.0,
-        )
-        response.raise_for_status()
-        return True
-    except httpx.HTTPError:
-        return False
+    # Prefer Gmail SMTP when configured; retain Resend as an optional fallback.
+    if GMAIL_ADDRESS and GMAIL_APP_PASSWORD:
+        try:
+            message = EmailMessage()
+            message["From"] = EMAIL_FROM or GMAIL_ADDRESS
+            message["To"] = to
+            message["Subject"] = subject
+            message.set_content("This email contains HTML content. Please view it in an HTML-capable email client.")
+            message.add_alternative(html, subtype="html")
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as smtp:
+                smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD.replace(" ", ""))
+                smtp.send_message(message)
+            return True
+        except (OSError, smtplib.SMTPException) as exc:
+            print(f"GMAIL_SEND_FAILED error={type(exc).__name__}")
+            return False
+    if RESEND_API_KEY and EMAIL_FROM:
+        try:
+            response = httpx.post(
+                "https://api.resend.com/emails",
+                headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
+                json={"from": EMAIL_FROM, "to": [to], "subject": subject, "html": html},
+                timeout=12.0,
+            )
+            response.raise_for_status()
+            return True
+        except httpx.HTTPError as exc:
+            print(f"RESEND_SEND_FAILED error={type(exc).__name__}")
+            return False
+    return False
 
 def issue_license(db, purchase: Purchase) -> Optional[str]:
     if purchase.license_key_hash:
@@ -224,7 +245,7 @@ async def razorpay_webhook(request: Request, x_razorpay_signature: str = Header(
 
 @app.post("/api/contact")
 def contact(payload: ContactRequest):
-    if not EMAIL_TO or not RESEND_API_KEY or not EMAIL_FROM:
+    if not EMAIL_TO or not EMAIL_FROM or not ((GMAIL_ADDRESS and GMAIL_APP_PASSWORD) or RESEND_API_KEY):
         raise HTTPException(503, "Customer email is not configured yet.")
     sent = send_email(EMAIL_TO, f"Vikora-One enquiry: {payload.topic}",
         f"<p><b>Name:</b> {payload.name}<br><b>Email:</b> {payload.email}<br><b>Topic:</b> {payload.topic}</p>"
