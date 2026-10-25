@@ -579,3 +579,23 @@ if (vikaa) {
   promptButtons.forEach(button => button.addEventListener('click', () => ask(button.dataset.vikaaPrompt)));
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !panel.hidden) closeVikaa(); });
 }
+
+
+/* Accessible Downloads dropdown */
+document.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
+  const button=dropdown.querySelector('.nav-dropdown-toggle');
+  button?.addEventListener('click',()=>{
+    const open=dropdown.classList.toggle('open');
+    button.setAttribute('aria-expanded',String(open));
+  });
+  dropdown.querySelectorAll('.nav-dropdown-menu a').forEach(link=>link.addEventListener('click',()=>{
+    dropdown.classList.remove('open');
+    button?.setAttribute('aria-expanded','false');
+  }));
+  document.addEventListener('click',event=>{
+    if(!dropdown.contains(event.target)){
+      dropdown.classList.remove('open');
+      button?.setAttribute('aria-expanded','false');
+    }
+  });
+});
