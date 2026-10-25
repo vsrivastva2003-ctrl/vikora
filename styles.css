@@ -189,3 +189,47 @@ main,section,header,footer,article,aside,nav,.section,.section-heading,.hero-cop
   .proof-strip div{flex-direction:column;gap:5px}
   .payment-section h2{font-size:31px}
 }
+
+
+/* Layout tuning from user feedback: use more of the screen and improve readability. */
+@media(min-width:801px){
+  .site-header{max-width:none;padding-left:clamp(28px,4vw,76px);padding-right:clamp(28px,4vw,76px)}
+  .footer{max-width:1500px;padding-left:clamp(28px,4vw,64px);padding-right:clamp(28px,4vw,64px)}
+  .section,.payment-section{max-width:1500px;padding-left:clamp(36px,5vw,84px);padding-right:clamp(36px,5vw,84px)}
+  .hero,.download-section,.contact-section{max-width:none;padding-left:clamp(48px,7vw,120px);padding-right:clamp(48px,7vw,120px)}
+  .hero-copy{max-width:720px}
+  .hero h1{font-size:clamp(62px,5vw,82px);line-height:1.02}
+  .hero-lede,.section-heading>p,.guide-card p,.manifesto p,.download-copy>p,.payment-section p,.contact-copy>p{font-size:clamp(14px,1vw,16px);line-height:1.8}
+  .nav-links{gap:clamp(18px,2vw,30px)}
+}
+body{font-size:16px;line-height:1.65}
+.nav-links>a{font-size:13px}
+.nav-cta,.button{font-size:13px}
+.eyebrow,.article-kicker{font-size:11px;letter-spacing:1.2px}
+.proof-strip>span{font-size:11px}
+.proof-strip div{font-size:14px}
+.guide-card h3,.plan-card h3{font-size:20px}
+.guide-card p,.plan-desc,.plan-card li{font-size:13px}
+.plan-kicker,.popular{font-size:10px}
+.price{font-size:29px}
+.download-copy>small,.plan-note,.form-note{font-size:11px}
+.contact-form label{font-size:12px}
+.contact-form input,.contact-form select,.contact-form textarea{font-size:13px;padding:12px}
+.footer>p{font-size:12px}
+.footer-links{font-size:12px}
+.footer-bottom{font-size:11px}
+@media(max-width:800px){
+  .site-header,.footer{max-width:none}
+  .hero,.download-section,.contact-section,.section,.payment-section{max-width:none}
+  .hero h1{font-size:clamp(48px,8vw,64px)}
+  .hero-lede,.section-heading>p,.guide-card p,.manifesto p,.download-copy>p,.payment-section p,.contact-copy>p{font-size:14px}
+  .guide-card h3,.plan-card h3{font-size:19px}
+  .guide-card p,.plan-desc,.plan-card li{font-size:13px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:clamp(43px,12vw,52px)}
+  .hero-lede{font-size:15px;line-height:1.75}
+  .nav-links>a{font-size:14px}
+  .section h2,.download-section h2,.contact-section h2{font-size:clamp(38px,10vw,46px)}
+  .footer-links{font-size:12px}
+}
