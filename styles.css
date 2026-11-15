@@ -548,3 +548,25 @@ body{background:#f4f2fb;color:var(--ink)}
 .social-promo-note a{color:#172c27;font-weight:800;text-underline-offset:3px}
 @media(max-width:760px){.social-promo-banner{grid-template-columns:1fr;gap:18px;border-radius:22px}.social-promo-stamp{width:116px;height:116px;margin-top:6px}.social-promo-stamp b{font-size:12px}.social-promo-orbit{right:5%;bottom:-90px;opacity:.55}.social-promo-grid{grid-template-columns:1fr}.social-promo-card{min-height:0}.social-promo-card-icon{margin-bottom:14px}}
 @media(prefers-reduced-motion:reduce){.social-promo-card{transition:none}}
+
+
+/* Vikora-One product screenshot gallery */
+.erp-screenshots{position:relative;overflow:hidden;background:linear-gradient(145deg,#f4f2e8 0%,#eef2e9 48%,#e9f0ec 100%)}
+.erp-screenshots:before{position:absolute;content:"";width:380px;height:380px;right:-150px;top:-190px;border:1px solid rgba(31,65,55,.13);border-radius:50%;pointer-events:none}
+.erp-screenshots-heading{position:relative;z-index:1}
+.erp-screenshot-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:clamp(28px,4vw,48px)}
+.erp-screenshot-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid rgba(28,54,46,.14);border-radius:20px;background:#fffdf7;color:#1d3029;text-decoration:none;box-shadow:0 10px 30px rgba(25,48,39,.07);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.erp-screenshot-card:hover{transform:translateY(-5px);border-color:rgba(45,91,71,.38);box-shadow:0 18px 38px rgba(25,48,39,.13)}
+.erp-screenshot-image{display:grid;place-items:center;min-height:190px;aspect-ratio:16/10;overflow:hidden;padding:12px;background:linear-gradient(135deg,#e6eee3,#f5edda 52%,#e5edf0)}
+.erp-screenshot-card:nth-child(3n+2) .erp-screenshot-image{background:linear-gradient(135deg,#e9e8f4,#f5e9e2 55%,#e6eee8)}
+.erp-screenshot-card:nth-child(3n) .erp-screenshot-image{background:linear-gradient(135deg,#e5efed,#e9e8db 55%,#f2e8d9)}
+.erp-screenshot-image img{display:block;width:100%;height:100%;max-height:330px;object-fit:contain;border:1px solid rgba(26,48,40,.12);border-radius:9px;background:#fff;box-shadow:0 5px 18px rgba(20,35,29,.12)}
+.erp-screenshot-caption{display:flex;flex-direction:column;gap:5px;padding:16px 18px 18px;border-top:3px solid #b5cf83}
+.erp-screenshot-card:nth-child(3n+2) .erp-screenshot-caption{border-top-color:#b9acd9}
+.erp-screenshot-card:nth-child(3n) .erp-screenshot-caption{border-top-color:#83bdb2}
+.erp-screenshot-caption b{font-family:Manrope,sans-serif;font-size:15px;letter-spacing:-.02em}
+.erp-screenshot-caption small{color:#66736b;font-size:12px;line-height:1.5}
+.erp-screenshots-note{position:relative;z-index:1;margin:20px 0 0;color:#657068;font-size:12px;line-height:1.6}
+@media(max-width:900px){.erp-screenshot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}}
+@media(max-width:560px){.erp-screenshot-grid{grid-template-columns:1fr;gap:14px}.erp-screenshot-image{min-height:170px}.erp-screenshot-card{border-radius:16px}.erp-screenshot-caption{padding:14px 15px}}
+@media(prefers-reduced-motion:reduce){.erp-screenshot-card{transition:none}}
