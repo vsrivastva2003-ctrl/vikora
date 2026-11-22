@@ -15,18 +15,33 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   toggle.textContent = '☰';
 }));
 
-document.querySelectorAll('.checkout-start').forEach(link => link.addEventListener('click', () => {
-  document.querySelector('#plan-type').value = link.dataset.plan;
-  const licenseType = document.querySelector('#license-type');
+// Checkout: use delegated click handling so Buy/Rent always reveals the panel,
+ // including when cards are refreshed or navigation is used on mobile.
+document.addEventListener('click', event => {
+  const link = event.target.closest('.checkout-start');
+  if (!link) return;
+  event.preventDefault();
+
+  const checkout = document.getElementById('checkout');
+  const plan = document.getElementById('plan-type');
+  const licenseType = document.getElementById('license-type');
+  if (!checkout || !plan || !licenseType) return;
+
+  plan.value = link.dataset.plan || 'Buy';
   licenseType.value = '';
-  document.querySelector('#checkout-total').textContent = 'Choose a license type to see your total.';
-  document.querySelector('#checkout-status').textContent = 'Payment processing and automatic license and invoice emails are not connected yet.';
-  document.querySelector('#customer-location').value = '';
-  document.querySelector('#payment-choice').hidden = true;
-  document.querySelector('#license-success').hidden = true;
-  document.querySelector('#checkout-button').textContent = 'Continue to payment ↗';
-  document.querySelector('#checkout').hidden = false;
-}));
+  document.getElementById('checkout-total').textContent = 'Choose a license type to see your total.';
+  document.getElementById('checkout-status').textContent = 'Online payment is not active yet. Please contact Vikora to complete your purchase; no payment will be taken on this page.';
+  document.getElementById('customer-location').value = '';
+  document.getElementById('payment-choice').hidden = true;
+  document.getElementById('license-success').hidden = true;
+  document.getElementById('checkout-button').textContent = 'Payment setup unavailable';
+  checkout.hidden = false;
+  history.replaceState(null, '', '#checkout');
+  requestAnimationFrame(() => {
+    checkout.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    checkout.querySelector('select, input')?.focus({ preventScroll: true });
+  });
+});
 
 document.querySelector('.about-actions a[href="#contact"]')?.addEventListener('click', () => {
   document.querySelector('#contact-form select[name="topic"]').value = 'Book a free demo';
