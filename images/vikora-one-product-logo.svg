@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title"><title id="title">Vikora-One</title><rect x="6" y="14" width="92" height="92" rx="25" fill="#d6f36b"/><path d="M27 39h18l16 43 16-43h18L69 91H53z" fill="#16382f"/><circle cx="79" cy="37" r="7" fill="#16382f"/><text x="120" y="66" font-family="Manrope,Arial,sans-serif" font-size="47" font-weight="800" letter-spacing="-2" fill="#16382f">Vikora</text><text x="282" y="66" font-family="Manrope,Arial,sans-serif" font-size="47" font-weight="500" letter-spacing="-2" fill="#6c8c28">-One</text><text x="123" y="91" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#64756b">ONE PLATFORM. ENDLESS POSSIBILITIES.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 124" role="img" aria-labelledby="title">
+<title id="title">Vikora-One ERP</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#35b8f4"/><stop offset=".55" stop-color="#1769e8"/><stop offset="1" stop-color="#123b86"/></linearGradient></defs>
+<rect x="7" y="12" width="96" height="96" rx="27" fill="#101d36"/>
+<path d="M20 33a34 34 0 0 1 63 5" fill="none" stroke="#35b8f4" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M82 49a34 34 0 0 1-59 33" fill="none" stroke="#1769e8" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M28 34 52 83 79 34" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="122" y="62" font-family="Manrope,Arial,sans-serif" font-size="48" font-weight="800" letter-spacing="-2" fill="#101d36">Vikora</text>
+<text x="285" y="62" font-family="Manrope,Arial,sans-serif" font-size="48" font-weight="600" letter-spacing="-2" fill="#1769e8">-One</text>
+<text x="126" y="91" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#60738e">ENTERPRISE RESOURCE PLANNING</text>
+</svg>
