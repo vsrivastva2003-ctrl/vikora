@@ -34,7 +34,8 @@ document.addEventListener('click', event => {
   document.getElementById('customer-location').value = '';
   document.getElementById('payment-choice').hidden = true;
   document.getElementById('license-success').hidden = true;
-  document.getElementById('checkout-button').textContent = 'Payment setup unavailable';
+  document.getElementById('checkout-button').textContent = 'Online payment not available';
+  document.getElementById('checkout-button').disabled = true;
   checkout.hidden = false;
   history.replaceState(null, '', '#checkout');
   requestAnimationFrame(() => {
@@ -67,7 +68,8 @@ document.querySelector('#customer-location').addEventListener('change', event =>
   const route = document.querySelector('#payment-route');
   route.innerHTML = india ? '<span class="razorpay-mark">R</span> Razorpay' : '<span class="paypal-mark">P</span> PayPal';
   document.querySelector('#payment-choice').hidden = !event.target.value;
-  document.querySelector('#checkout-button').innerHTML = `Continue to ${india ? 'Razorpay' : 'PayPal'} <span>↗</span>`;
+  document.querySelector('#checkout-button').textContent = 'Online payment not available';
+  document.querySelector('#checkout-button').disabled = true;
   document.querySelector('#checkout-status').textContent = india
     ? 'Razorpay domestic payments are not connected yet. This preview will not collect a payment.'
     : 'PayPal international payments are not connected yet. This preview will not collect a payment.';
