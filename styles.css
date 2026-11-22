@@ -833,3 +833,95 @@ a{transition:color .2s ease}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* =========================================================
+   VIKORA PREMIUM FINISH — unified visual polish
+   Existing page structure, pricing and interactive flows retained.
+   ========================================================= */
+:root{
+  --vikora-navy:#101d36;
+  --vikora-blue:#1769e8;
+  --vikora-sky:#35b8f4;
+  --vikora-line:#dce7f4;
+  --vikora-muted:#63748e;
+}
+body{font-feature-settings:"ss01" on; text-rendering:optimizeLegibility}
+.site-header{min-height:76px}
+.brand-image{min-width:150px}
+.brand-image img{display:block;max-width:190px;max-height:52px}
+.nav-links{white-space:nowrap}
+.hero{isolation:isolate}
+.hero:after{
+  content:"";position:absolute;z-index:0;right:-9%;top:-28%;width:54vw;height:54vw;
+  border:1px solid rgba(153,211,255,.13);border-radius:50%;
+  box-shadow:0 0 0 42px rgba(153,211,255,.035),0 0 0 90px rgba(153,211,255,.025);
+  pointer-events:none
+}
+.hero-copy{max-width:590px}
+.hero h1{max-width:680px}
+.hero-product-logo{width:min(230px,52%);height:auto;margin:0 0 24px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.12))}
+.hero-art{filter:saturate(1.04)}
+.product-window{backdrop-filter:blur(8px)}
+.section{scroll-margin-top:90px}
+.section-heading{align-items:end}
+.section-heading h2{max-width:720px}
+.guide-card,.plan-card,.feature-card,.about-details-card,.erp-screenshot-card,.social-link{
+  box-shadow:0 12px 34px rgba(16,45,85,.055)
+}
+.guide-card,.plan-card,.feature-card,.about-details-card{padding:clamp(22px,2.4vw,32px)}
+.guide-card h3,.plan-card h3{letter-spacing:-.45px}
+.plan-card{overflow:hidden;position:relative}
+.plan-highlight:before{
+  content:"";position:absolute;inset:0 0 auto;height:4px;
+  background:linear-gradient(90deg,#1769e8,#35b8f4)
+}
+.popular{font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.price{letter-spacing:-1.4px}
+.download-section{position:relative;isolation:isolate;overflow:hidden}
+.download-section:after{
+  content:"";position:absolute;z-index:-1;right:7%;top:50%;width:290px;height:290px;
+  transform:translateY(-50%);border:1px solid rgba(160,215,255,.22);border-radius:50%;
+  box-shadow:0 0 0 28px rgba(160,215,255,.045),0 0 0 58px rgba(160,215,255,.03)
+}
+.download-symbol{border:1px solid rgba(255,255,255,.25)}
+.payment-section{box-shadow:0 18px 50px rgba(16,45,85,.07)}
+.contact-section{position:relative;isolation:isolate}
+.contact-section:before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.16;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);
+  background-size:54px 54px;mask-image:linear-gradient(90deg,#000,transparent 75%)
+}
+.contact-section .contact-form{color:#172943}
+.footer{border-top:1px solid rgba(160,190,225,.12)}
+.footer .brand-image img{filter:brightness(0) invert(1);opacity:.94}
+.social-link{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.social-link:hover{transform:translateY(-4px)}
+.button,.nav-cta,.button-outline{transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.button:hover,.button-outline:hover{transform:translateY(-2px)}
+input,select,textarea{accent-color:var(--vikora-blue)}
+:focus-visible{outline-offset:4px}
+@media(max-width:1100px){
+  .nav-links{gap:12px;font-size:11px}
+  .nav-cta{padding:10px 13px}
+}
+@media(max-width:900px){
+  .site-header{height:72px;padding:0 5%}
+  .nav-links{white-space:normal}
+  .hero{grid-template-columns:1fr;gap:20px;padding-top:66px}
+  .hero-copy{max-width:720px}
+  .hero-art{width:min(100%,650px);margin:0 auto}
+  .hero:after{width:85vw;height:85vw;right:-28%;top:5%}
+}
+@media(max-width:600px){
+  .brand-image img{max-width:158px;max-height:44px}
+  .hero-product-logo{width:190px;margin-bottom:20px}
+  .hero-art{height:340px;transform:scale(.98);transform-origin:top center}
+  .section{padding-top:76px;padding-bottom:76px}
+  .section-heading{gap:18px}
+  .plan-card{min-height:0}
+  .download-section:after{width:190px;height:190px;right:-90px;top:25%}
+}
+@media(prefers-reduced-motion:reduce){
+  .guide-card,.plan-card,.feature-card,.social-link,.button,.nav-cta{transition:none!important}
+}
