@@ -570,3 +570,266 @@ body{background:#f4f2fb;color:var(--ink)}
 @media(max-width:900px){.erp-screenshot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}}
 @media(max-width:560px){.erp-screenshot-grid{grid-template-columns:1fr;gap:14px}.erp-screenshot-image{min-height:170px}.erp-screenshot-card{border-radius:16px}.erp-screenshot-caption{padding:14px 15px}}
 @media(prefers-reduced-motion:reduce){.erp-screenshot-card{transition:none}}
+
+
+/* =========================================================
+   VIKORA PREMIUM BLUE SYSTEM — complete visual refresh
+   Keeps existing HTML, links, pricing, assets and interactions.
+   ========================================================= */
+:root{
+  --ink:#101d36;
+  --muted:#62718a;
+  --cream:#f3f7fc;
+  --paper:#ffffff;
+  --lime:#1769e8;
+  --line:#dce6f3;
+  --orange:#35b8f4;
+  --vikora-navy:#101d36;
+  --vikora-blue:#1769e8;
+  --vikora-sky:#35b8f4;
+  --vikora-pale:#f2f6fc;
+  --vikora-text:#182943;
+}
+html{scroll-padding-top:100px}
+body{background:var(--vikora-pale);color:var(--vikora-text);font-size:15.5px;line-height:1.7}
+::selection{background:#cfe4ff;color:#10264a}
+a{transition:color .2s ease}
+.site-header{
+  position:sticky;top:0;z-index:100;width:100%;max-width:none;height:82px;
+  padding:0 max(calc((100% - 1320px)/2),5.2%);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(208,222,240,.8);
+  box-shadow:0 5px 24px rgba(16,29,54,.045)
+}
+.brand-image img{max-height:48px;width:auto}
+.nav-links{gap:clamp(13px,1.6vw,25px);font-size:12px;color:#31435e}
+.nav-links>a:not(.nav-cta):hover,.footer a:hover{color:var(--vikora-blue)}
+.nav-cta{padding:11px 18px;border:1px solid var(--vikora-blue);border-radius:999px;background:var(--vikora-blue);color:#fff!important;box-shadow:0 8px 20px rgba(23,105,232,.18)}
+.nav-cta:hover{background:#0f56c8;transform:translateY(-1px)}
+.nav-dropdown-toggle{font-size:12px;color:#31435e}
+.nav-dropdown-menu{border-color:#dce6f3;border-radius:14px;box-shadow:0 20px 50px rgba(16,29,54,.15)}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a:focus-visible{background:#edf5ff;color:#145dcc}
+.hero{
+  max-width:none;min-height:690px;padding:92px max(calc((100% - 1240px)/2),7.5%) 86px;
+  grid-template-columns:1fr 1.05fr;gap:5%;
+  color:#fff;background:
+    radial-gradient(ellipse at 82% 22%,rgba(53,184,244,.25),transparent 35%),
+    radial-gradient(ellipse at 10% 100%,rgba(23,105,232,.28),transparent 42%),
+    linear-gradient(125deg,#0d1a32 0%,#142b50 55%,#123e72 100%);
+}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,transparent,#000 50%,#000)}
+.hero-copy,.hero-art{position:relative;z-index:1}
+.hero .eyebrow{color:#a9dfff}
+.pulse{background:#35b8f4;box-shadow:0 0 0 5px rgba(53,184,244,.18)}
+.hero h1{font-size:clamp(54px,6vw,82px);line-height:1.02;letter-spacing:-4.5px;color:#fff}
+.hero h1 em{color:#69c9ff}
+.hero-lede{max-width:500px;color:#d3e2f5;font-size:17px;line-height:1.85}
+.button{min-height:52px;padding:0 23px;border-radius:999px;font-size:13px;letter-spacing:.01em}
+.button-lime{background:linear-gradient(110deg,#1769e8,#2389f4);color:#fff;box-shadow:0 12px 28px rgba(23,105,232,.28)}
+.button-lime:hover{background:linear-gradient(110deg,#1058ce,#1678df)}
+.hero .text-link{color:#eaf5ff}
+.hero .play{border-color:#8dbbe5}
+.trust-note{color:#bfd2e9;font-size:11px}
+.avatar-stack i{border-color:#16365d}
+.avatar-stack i:nth-child(2){background:#1769e8}.avatar-stack i:nth-child(3){background:#35b8f4;color:#102544}
+.hero-art{height:500px}
+.sun-disc{background:radial-gradient(circle at 35% 30%,#8edcff,#2388e8 55%,#1554a7);opacity:.9;box-shadow:0 0 90px rgba(53,184,244,.25)}
+.orbit{border-color:rgba(176,218,255,.34)}
+.product-window{border:1px solid rgba(255,255,255,.55);border-radius:18px;box-shadow:0 35px 90px rgba(0,0,0,.35);transform:rotate(-2deg)}
+.window-top{background:#f3f7fc}
+.side-brand{background:#1769e8;color:#fff}
+.progress u{background:#1769e8}
+.task-tag{background:#e7f2ff;color:#1769e8}
+.floating-card{border:1px solid rgba(218,232,248,.8);border-radius:14px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.mini-icon,.spark{background:#e8f4ff;color:#1769e8}
+.card-check{color:#168b70}
+.tiny-star{color:#8edcff}
+.scroll-cue{color:#c3d7ed}
+.scroll-cue span{background:#69c9ff}
+.proof-strip{padding:27px 7%;background:#fff;color:#657590;border-bottom:1px solid #e1eaf5}
+.proof-strip div{color:#142b4d;font-size:15px}
+.section{max-width:1320px;padding:112px 5.5%}
+.section-heading{gap:40px}
+.eyebrow{letter-spacing:1.6px}
+.dark-eyebrow{color:#1769e8}
+.section h2,.download-section h2,.payment-section h2,.contact-section h2{color:#101d36}
+.section h2 em,.download-section h2 em,.payment-section h2 em{color:#1769e8}
+.section-heading>p{color:#62718a;font-size:14px;max-width:390px}
+.guide-section,.about-details{background:#f7faff}
+.guide-grid,.plan-grid{gap:20px}
+.guide-card,.plan-card,.feature-card,.about-details-card{
+  border:1px solid #dce7f4;border-radius:18px;background:#fff;
+  box-shadow:0 10px 30px rgba(24,55,95,.045);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease
+}
+.guide-card:hover,.plan-card:hover,.feature-card:hover{
+  transform:translateY(-5px);border-color:#b8d5f7;box-shadow:0 18px 42px rgba(24,75,135,.10)
+}
+.guide-feature,.plan-highlight{background:linear-gradient(145deg,#edf5ff,#fff);border-color:#c8def9}
+.step-label,.guide-card>a{color:#1769e8}
+.guide-icon{border-radius:12px}
+.icon-setup{background:#e1efff;color:#1769e8}
+.icon-flow{background:#e4f7ff;color:#087da9}
+.icon-move{background:#e5f5f1;color:#168b70}
+.guide-card h3,.plan-card h3{color:#142744}
+.guide-card p,.plan-desc,.plan-note{color:#62718a}
+.guide-card>a{border-color:#a9cbf4}
+.tutorial-intro{border:1px solid #d9e8f8;border-radius:16px;background:#fff;box-shadow:0 8px 25px rgba(24,55,95,.04)}
+.tutorial-intro-icon{border-radius:12px}
+.tutorial-manual,.tutorial-team-note{border-radius:20px}
+.tutorial-steps article{border-color:#dce6f3}
+.tutorial-steps article>span{color:#1769e8}
+.tutorial-use-cases span{border-color:#cbdcf0;background:#fff;color:#38516f;border-radius:999px}
+.module-learning-card{border:1px solid #dce7f4;border-radius:18px;box-shadow:0 10px 28px rgba(24,55,95,.05)}
+.module-sales,.module-stock,.module-project{background:linear-gradient(145deg,#f1f7ff,#fff)}
+.module-orb{background:#e1efff;color:#1769e8}
+.article-kicker{color:#1769e8}
+.module-path span{border-color:#c7dcf5;background:#fff;color:#26476f;border-radius:999px}
+.module-tip{border:1px solid #cfe1f6;border-radius:14px;background:#edf5ff}
+.tutorial-report-lab{border:1px solid #d8e7f7;border-radius:22px;background:linear-gradient(135deg,#edf5ff,#f8fbff)}
+.report-choice{border-color:#d5e2f1;border-radius:999px}
+.report-choice.is-active{background:#1769e8;color:#fff;border-color:#1769e8}
+.report-dashboard{border:1px solid #dbe6f3;border-radius:18px;box-shadow:0 15px 38px rgba(20,55,100,.08)}
+.report-ring{border-color:#d7e7f8}
+.report-ring:before{border-color:#1769e8}
+.tutorial-team-note{background:#fff;border:1px solid #dce7f4;box-shadow:0 10px 28px rgba(24,55,95,.04)}
+.button-outline{border-color:#b9cee7;color:#1a4d86;border-radius:999px}
+.button-outline:hover{background:#edf5ff}
+.manifesto.about-section{
+  position:relative;min-height:640px;padding:100px max(calc((100% - 1240px)/2),7.5%);
+  background:radial-gradient(ellipse at 85% 50%,rgba(53,184,244,.22),transparent 42%),linear-gradient(130deg,#101d36,#153d6c);
+  color:#fff
+}
+.about-copy .eyebrow{color:#8edcff}
+.about-copy h2{color:#fff}
+.about-copy h2 em{color:#69c9ff}
+.about-copy>p,.about-facts small{color:#d0e0f3}
+.about-facts>div{border-color:rgba(198,222,249,.2)}
+.fact-icon{background:#1769e8;color:#fff;border-radius:10px}
+.about-visual{border:1px solid rgba(211,232,255,.24);border-radius:22px;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.24)}
+.about-visual figcaption{background:#fff;color:#142744}
+.about-visual figcaption small{color:#6d7f98}
+.about-actions .button-lime{background:#fff;color:#145fcf;box-shadow:none}
+.about-actions .light-link{color:#e8f4ff;border-color:#7ca8d6}
+.about-details{background:#f7faff}
+.plans-section{background:linear-gradient(180deg,#f5f9ff,#fff)}
+.plan-card{min-height:390px}
+.plan-highlight{background:linear-gradient(145deg,#eaf3ff,#fff);border:1px solid #a9cdf8}
+.popular{background:#1769e8;color:#fff;border-radius:999px}
+.plan-icon{background:#e6f1ff;color:#1769e8;border-radius:10px}
+.price{color:#10264a}
+.plan-card li{color:#536782}
+.plan-card li:before{color:#168b70}
+.plan-card ul{border-color:#e2eaf4}
+.download-section{
+  background:radial-gradient(circle at 78% 45%,rgba(53,184,244,.22),transparent 34%),linear-gradient(120deg,#101d36,#164477);
+  color:#fff;padding:90px max(calc((100% - 1200px)/2),7.5%);border-radius:0
+}
+.download-section .eyebrow{color:#9cdbff}
+.download-section h2{color:#fff}
+.download-section h2 em{color:#69c9ff}
+.download-copy>p{color:#d4e4f7}
+.download-copy>small{color:#b5cbe4}
+.download-symbol{background:linear-gradient(135deg,#35b8f4,#1769e8);color:#fff;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.download-symbol span{color:#dff5ff}
+.download-ring{border-color:#7dbbe766}
+.download-label{color:#cdeaff}
+.payment-section{background:#fff;border:1px solid #e3ebf5;border-radius:20px;margin:70px auto;padding:42px 38px;max-width:1200px}
+.payment-icon{background:#e8f3ff;color:#1769e8}
+.payment-section p{color:#62718a}
+.contact-section{
+  background:radial-gradient(ellipse at 8% 10%,rgba(53,184,244,.2),transparent 36%),linear-gradient(125deg,#101d36,#163e70);
+  color:#fff;padding:100px max(calc((100% - 1200px)/2),7.5%)
+}
+.contact-section h2,.contact-section h2 em{color:#fff}
+.contact-section h2 em{color:#69c9ff}
+.contact-section .eyebrow,.contact-section .contact-method small{color:#a9ddff}
+.contact-section .contact-copy>p,.contact-section .contact-phone-number{color:#d6e5f7}
+.contact-section .contact-email{color:#fff;border-color:#6b91bb}
+.contact-section .contact-email span{color:#69c9ff}
+.contact-section .method-icon{background:#1769e8;color:#fff}
+.contact-section .contact-form{border:1px solid #d8e6f5;border-radius:18px;box-shadow:0 20px 55px rgba(0,0,0,.2)}
+.contact-section .contact-form input,.contact-section .contact-form select,.contact-section .contact-form textarea{border-radius:9px;border-color:#d4e0ef;background:#f8fbff}
+.contact-section .contact-form input:focus,.contact-section .contact-form select:focus,.contact-section .contact-form textarea:focus{border-color:#1769e8;box-shadow:0 0 0 3px rgba(23,105,232,.12)}
+.contact-section .form-note{color:#667892}
+.contact-section .button-lime,.contact-section .button.primary{background:#1769e8;color:#fff;border-radius:999px}
+.footer{max-width:none;padding:58px max(calc((100% - 1240px)/2),5.5%) 24px;background:#0b172d;color:#fff}
+.footer>p,.footer-bottom,.footer-bottom>a:last-child{color:#b8c9df}
+.footer-links{border-color:#2b4263}
+.footer a:hover{color:#69c9ff}
+.social-section{background:linear-gradient(135deg,#edf5ff,#f8fbff 65%,#e8f7ff)}
+.social-section h2 em{color:#1769e8}
+.social-copy>p,.social-link small,.social-email-contact p{color:#62718a}
+.social-link{border-color:#d7e5f5;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(24,55,95,.04)}
+.social-link:hover,.social-link:focus-visible{border-color:#9fc6f4;box-shadow:0 16px 34px rgba(23,105,232,.10)}
+.social-facebook,.social-linkedin{color:#1769e8}
+.social-email-icon{background:#e8f3ff;color:#1769e8}
+.social-email-contact{border-color:#d7e5f5;border-radius:18px}
+.social-email-contact a{color:#17345a}
+.social-email-contact a span{color:#1769e8}
+.social-promo-banner{background:radial-gradient(circle at 75% 25%,rgba(53,184,244,.24),transparent 34%),linear-gradient(120deg,#101d36,#164477);border-radius:24px}
+.social-promo-kicker{color:#8edcff}
+.social-promo-orbit{color:#8edcff;border-color:rgba(142,220,255,.38)}
+.social-promo-stamp{background:#1769e8;color:#fff;border-color:#69c9ff}
+.social-promo-card{border-color:#d7e5f5;border-radius:18px;background:#fff}
+.social-promo-card-icon{background:#e8f3ff;color:#1769e8}
+.social-promo-card small,.social-promo-card p,.social-promo-note{color:#62718a}
+.social-promo-card>a,.social-promo-note a{color:#145fcf}
+.erp-screenshots{background:linear-gradient(145deg,#edf5ff,#f8fbff 56%,#e8f7ff)}
+.erp-screenshot-card{border:1px solid #d8e6f5;border-radius:18px;background:#fff;color:#183252;box-shadow:0 12px 32px rgba(24,55,95,.07)}
+.erp-screenshot-card:hover{border-color:#9fc6f4;box-shadow:0 20px 42px rgba(23,105,232,.13)}
+.erp-screenshot-image{background:linear-gradient(135deg,#e3efff,#f4f9ff 55%,#e1f6ff)}
+.erp-screenshot-card:nth-child(3n+2) .erp-screenshot-image,.erp-screenshot-card:nth-child(3n) .erp-screenshot-image{background:linear-gradient(135deg,#e3efff,#f4f9ff 55%,#e1f6ff)}
+.erp-screenshot-caption{border-top-color:#1769e8}
+.erp-screenshot-card:nth-child(3n+2) .erp-screenshot-caption,.erp-screenshot-card:nth-child(3n) .erp-screenshot-caption{border-top-color:#35b8f4}
+.erp-screenshot-caption small,.erp-screenshots-note{color:#62718a}
+.inner-page{max-width:1160px;margin:0 auto;padding:95px 6%;color:#182943}
+.inner-page h1,.inner-page h2{color:#101d36}
+.inner-page .eyebrow{color:#1769e8}
+.inner-page .lead{color:#62718a}
+.inner-page .feature-card,.inner-page .tutorial-item,.inner-page .contact-form{border:1px solid #dce7f4;border-radius:18px;background:#fff;box-shadow:0 10px 30px rgba(24,55,95,.05)}
+.inner-page .notice{border:1px solid #cfe1f6;border-radius:14px;background:#edf5ff}
+.inner-page .button.primary{background:#1769e8;color:#fff;border-radius:999px}
+.checkout-section{background:#edf5ff}
+.checkout-box{border:1px solid #d8e6f5;border-radius:20px;box-shadow:0 18px 48px rgba(24,55,95,.09)}
+.checkout-box h2 em{color:#1769e8}
+.checkout-box input,.checkout-box select{border-radius:9px;border-color:#d4e0ef}
+.checkout-box .button{background:#1769e8;color:#fff;border-radius:999px}
+.payment-choice{border-color:#dce7f4;border-radius:12px}
+.checkout-total{background:#edf5ff;border-color:#d4e4f6;border-radius:10px;color:#183252}
+.vikaa-launcher{background:#101d36;border:1px solid #2e5f98;box-shadow:0 14px 38px rgba(16,29,54,.28)}
+.vikaa-launcher-icon{background:#1769e8;color:#fff}
+.vikaa-launcher-arrow{color:#8edcff}
+.vikaa-head{background:linear-gradient(110deg,#101d36,#164477)}
+.vikaa-avatar{background:#1769e8;color:#fff}
+.vikaa-quick-prompts button{border-color:#d2e2f4;color:#174b83}
+.vikaa-quick-prompts button:hover{background:#edf5ff}
+.vikaa-form button{background:#1769e8;color:#fff}
+.vikaa-message.vikaa-user p{background:#1769e8;border-color:#1769e8}
+.vikaa-message p a{color:#145fcf}
+:focus-visible{outline:3px solid rgba(53,184,244,.75);outline-offset:3px}
+@media(max-width:900px){
+  .site-header{height:72px;padding:0 22px}
+  .nav-links{background:#fff;border:1px solid #dce7f4;border-radius:16px;box-shadow:0 18px 45px rgba(16,29,54,.16)}
+  .hero{padding:70px 7% 78px;gap:12px}
+  .hero-art{height:430px}
+  .manifesto.about-section{padding:75px 7%}
+  .payment-section{margin:45px 5%;padding:30px 25px}
+  .footer{padding:45px 7% 22px}
+}
+@media(max-width:600px){
+  .hero{padding:58px 7% 74px}
+  .hero h1{font-size:clamp(46px,12vw,62px);letter-spacing:-3px}
+  .hero-lede{font-size:15px}
+  .hero-art{height:340px}
+  .section{padding:76px 7%}
+  .section h2,.download-section h2,.contact-section h2{font-size:clamp(38px,10vw,48px);letter-spacing:-2px}
+  .about-content{gap:32px}
+  .manifesto.about-section{padding:70px 7%}
+  .payment-section{grid-template-columns:1fr;margin:30px 5%;padding:26px 22px}
+  .payment-section>.button{grid-column:1}
+  .social-section{padding:70px 7%}
+  .footer-links{gap:15px;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
