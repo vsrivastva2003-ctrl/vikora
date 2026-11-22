@@ -925,3 +925,87 @@ input,select,textarea{accent-color:var(--vikora-blue)}
 @media(prefers-reduced-motion:reduce){
   .guide-card,.plan-card,.feature-card,.social-link,.button,.nav-cta{transition:none!important}
 }
+
+
+/* VIKORA — refined colour balance and section rhythm */
+:root{
+  --vikora-navy:#0b1932;
+  --vikora-blue:#245fce;
+  --vikora-sky:#42b9e8;
+  --vikora-pale:#f4f8fe;
+  --vikora-text:#1b2d49;
+  --vikora-muted:#687b96;
+  --vikora-line:#dfe8f4;
+}
+body{background:#f6f9fe;color:#1b2d49}
+.site-header{background:rgba(255,255,255,.96);border-bottom-color:#e5edf7}
+.nav-links{color:#344967}
+.nav-cta{background:#245fce;border-color:#245fce;box-shadow:0 8px 20px rgba(36,95,206,.16)}
+.nav-cta:hover{background:#194da9}
+.hero{
+  background:
+    radial-gradient(ellipse at 78% 24%,rgba(66,185,232,.20),transparent 34%),
+    radial-gradient(ellipse at 12% 100%,rgba(36,95,206,.22),transparent 42%),
+    linear-gradient(125deg,#0b1932 0%,#142d52 58%,#174777 100%);
+}
+.hero h1 em,.download-section h2 em{color:#7bd3f5}
+.button-lime{background:linear-gradient(110deg,#245fce,#3185e8);box-shadow:0 12px 26px rgba(36,95,206,.24)}
+.button-lime:hover{background:linear-gradient(110deg,#194da9,#246fc9)}
+.proof-strip{background:#fff;border-bottom:1px solid #e6edf6}
+.proof-strip div{color:#203957}
+.guide-section,.about-details,.erp-screenshots{background:#f4f8fe}
+.section{color:#1b2d49}
+.dark-eyebrow,.step-label,.guide-card>a,.article-kicker{color:#245fce}
+.guide-feature{background:linear-gradient(145deg,#eaf3ff,#fff)}
+.guide-card,.plan-card,.feature-card,.about-details-card,.erp-screenshot-card{
+  border-color:#dfe8f4;background:#fff;box-shadow:0 9px 28px rgba(23,53,91,.045)
+}
+.guide-card:hover,.plan-card:hover,.feature-card:hover,.erp-screenshot-card:hover{
+  border-color:#b8d2f2;box-shadow:0 17px 38px rgba(23,67,125,.09)
+}
+.icon-setup,.plan-icon,.payment-icon,.social-email-icon{background:#e9f2ff;color:#245fce}
+.icon-flow{background:#e6f7fc;color:#1684ad}
+.icon-move{background:#e9f5f1;color:#21856e}
+.plans-section{background:linear-gradient(180deg,#f4f8fe 0%,#fff 100%)}
+.plan-highlight{background:linear-gradient(145deg,#edf5ff,#fff);border-color:#bcd5f4}
+.popular{background:#245fce;color:#fff}
+.plan-card li:before{color:#20866e}
+.manifesto.about-section{
+  background:
+    radial-gradient(ellipse at 82% 45%,rgba(66,185,232,.18),transparent 40%),
+    linear-gradient(130deg,#0b1932,#153d69);
+}
+.download-section{
+  background:
+    radial-gradient(circle at 78% 45%,rgba(66,185,232,.18),transparent 34%),
+    linear-gradient(120deg,#0b1932,#174777);
+}
+.download-symbol{background:linear-gradient(135deg,#42b9e8,#245fce)}
+.payment-section{background:#fff;border-color:#e2eaf5}
+.contact-section{
+  background:
+    radial-gradient(ellipse at 8% 10%,rgba(66,185,232,.15),transparent 36%),
+    linear-gradient(125deg,#10213d,#194875);
+}
+.contact-section .contact-form{background:#fff;border-color:#dce7f4}
+.contact-section .contact-form input,.contact-section .contact-form select,.contact-section .contact-form textarea{background:#f8fbff;border-color:#dce6f2}
+.contact-section .button-lime,.contact-section .button.primary{background:#245fce}
+.social-section{background:linear-gradient(135deg,#edf5ff,#f8fbff 62%,#eaf8fc)}
+.social-link{background:#fff;border-color:#dce7f4}
+.social-link:hover,.social-link:focus-visible{border-color:#a9c9ef}
+.social-facebook,.social-linkedin{color:#245fce}
+.social-promo-banner{background:radial-gradient(circle at 75% 25%,rgba(66,185,232,.2),transparent 34%),linear-gradient(120deg,#0b1932,#174777)}
+.footer{background:#09162b;border-top-color:rgba(160,190,225,.12)}
+.inner-page .notice,.module-tip{background:#edf5ff;border-color:#d5e5f7}
+.checkout-section{background:#edf4fd}
+.checkout-box{background:#fff;border-color:#dce7f4}
+.checkout-box .button{background:#245fce}
+.checkout-total{background:#edf5ff;border-color:#d8e7f8}
+.vikaa-launcher{background:#0b1932}
+.vikaa-launcher-icon,.vikaa-form button,.vikaa-message.vikaa-user p{background:#245fce}
+.vikaa-head{background:linear-gradient(110deg,#0b1932,#174777)}
+:focus-visible{outline-color:#42b9e8}
+@media(max-width:900px){
+  .nav-links{background:#fff;border-color:#dfe8f4}
+  .hero{background:linear-gradient(145deg,#0b1932,#174777)}
+}
