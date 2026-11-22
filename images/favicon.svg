@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Vikora">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#35b8f4"/><stop offset=".55" stop-color="#1769e8"/><stop offset="1" stop-color="#123b86"/></linearGradient></defs>
-<rect x="3" y="3" width="94" height="94" rx="27" fill="#101d36"/>
-<path d="M18 27a34 34 0 0 1 62 5" fill="none" stroke="#35b8f4" stroke-width="5" stroke-linecap="round"/>
-<path d="M81 42a34 34 0 0 1-59 34" fill="none" stroke="#1769e8" stroke-width="5" stroke-linecap="round"/>
-<path d="M25 30 49 76 76 30" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="80" cy="22" r="5" fill="#35b8f4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Vikora"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8bcfe2"/><stop offset=".5" stop-color="#397fae"/><stop offset="1" stop-color="#24466f"/></linearGradient></defs><rect x="3" y="3" width="94" height="94" rx="25" fill="#172d49"/><path d="M17 25C32 7 60 7 78 23" fill="none" stroke="#8bcfe2" stroke-width="5" stroke-linecap="round"/><path d="M81 35C88 57 74 78 54 83" fill="none" stroke="#397fae" stroke-width="5" stroke-linecap="round"/><path d="M20 31L48 78L78 31" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 43L48 65L63 43" fill="none" stroke="#d5edf2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="78" cy="22" r="5" fill="#8bcfe2"/></svg>
