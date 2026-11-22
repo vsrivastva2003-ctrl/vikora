@@ -1,15 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 88" role="img" aria-labelledby="title desc">
-<title id="title">Vikora</title><desc id="desc">Vikora blue orbital V business technology logo</desc>
-<defs>
-<linearGradient id="mark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#35b8f4"/><stop offset=".55" stop-color="#1769e8"/><stop offset="1" stop-color="#123b86"/></linearGradient>
-<linearGradient id="word" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#101d36"/><stop offset="1" stop-color="#245b9c"/></linearGradient>
-</defs>
-<g transform="translate(7 5)">
-<path d="M10 18a34 34 0 0 1 60 3" fill="none" stroke="#35b8f4" stroke-width="5" stroke-linecap="round"/>
-<path d="M72 27a34 34 0 0 1-56 40" fill="none" stroke="#1769e8" stroke-width="5" stroke-linecap="round"/>
-<path d="M15 24 37 66 61 24" fill="none" stroke="url(#mark)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="70" cy="17" r="5" fill="#35b8f4"/>
-</g>
-<text x="92" y="54" font-family="Manrope,Arial,sans-serif" font-size="43" font-weight="800" letter-spacing="-1.8" fill="url(#word)">Vikora</text>
-<text x="95" y="73" font-family="Arial,sans-serif" font-size="9.5" font-weight="700" letter-spacing="2.7" fill="#60738e">BUSINESS SYSTEMS</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 92" role="img" aria-labelledby="title desc">
+<title id="title">Vikora</title><desc id="desc">Vikora premium business systems wordmark with a geometric orbital V symbol.</desc>
+<defs><linearGradient id="v-mark" x1="10%" y1="0%" x2="90%" y2="100%"><stop offset="0" stop-color="#62c6e8"/><stop offset=".48" stop-color="#397fae"/><stop offset="1" stop-color="#24466f"/></linearGradient><linearGradient id="v-type" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#172d49"/><stop offset="1" stop-color="#315a7b"/></linearGradient></defs>
+<g transform="translate(7 5)"><path d="M17 17C31 2 57 0 75 13" fill="none" stroke="#8bcfe2" stroke-width="4.5" stroke-linecap="round"/><path d="M79 25C91 48 78 72 56 79" fill="none" stroke="#3d7fa8" stroke-width="4.5" stroke-linecap="round"/><path d="M18 28L43 76L69 28" fill="none" stroke="url(#v-mark)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 39L43 61L56 39" fill="none" stroke="#d5edf2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/><circle cx="76" cy="14" r="5" fill="#8bcfe2"/></g>
+<text x="105" y="56" font-family="Manrope,Arial,sans-serif" font-size="45" font-weight="800" letter-spacing="-2" fill="url(#v-type)">Vikora</text><text x="108" y="76" font-family="Arial,sans-serif" font-size="9.5" font-weight="700" letter-spacing="3.1" fill="#71869a">BUSINESS SYSTEMS</text></svg>
