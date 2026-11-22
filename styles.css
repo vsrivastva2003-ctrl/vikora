@@ -1009,3 +1009,109 @@ body{background:#f6f9fe;color:#1b2d49}
   .nav-links{background:#fff;border-color:#dfe8f4}
   .hero{background:linear-gradient(145deg,#0b1932,#174777)}
 }
+
+
+/* VIKORA — calm, low-glare palette */
+:root{
+  --vikora-navy:#26364d;
+  --vikora-blue:#5879a5;
+  --vikora-sky:#8db8cf;
+  --vikora-pale:#f4f3ef;
+  --vikora-text:#29384c;
+  --vikora-muted:#718096;
+  --vikora-line:#e4e2dc;
+  --cream:#f4f3ef;
+  --paper:#fbfaf7;
+  --lime:#5879a5;
+}
+html{background:#f4f3ef}
+body{background:#f4f3ef;color:#29384c}
+.site-header{background:rgba(250,249,246,.96);border-bottom-color:#e6e3dc;box-shadow:0 3px 18px rgba(39,52,72,.035)}
+.nav-links{color:#53647a}
+.nav-cta{background:#5879a5;border-color:#5879a5;box-shadow:0 5px 14px rgba(63,91,126,.13)}
+.nav-cta:hover{background:#49698f}
+.hero{
+  background:
+    radial-gradient(ellipse at 78% 24%,rgba(141,184,207,.12),transparent 36%),
+    linear-gradient(125deg,#26364d 0%,#30445e 60%,#38556d 100%);
+}
+.hero:before{opacity:.10}
+.hero:after{border-color:rgba(205,221,231,.10);box-shadow:0 0 0 42px rgba(205,221,231,.022),0 0 0 90px rgba(205,221,231,.015)}
+.hero h1 em,.download-section h2 em{color:#a9cbd9}
+.hero .eyebrow,.download-section .eyebrow,.contact-section .eyebrow{color:#b8d0dc}
+.hero-lede{color:#d5dde4}
+.pulse{background:#9bbdcc;box-shadow:0 0 0 5px rgba(155,189,204,.14)}
+.button-lime,.contact-section .button-lime,.contact-section .button.primary{
+  background:#5879a5;color:#fff;box-shadow:0 7px 17px rgba(54,79,111,.16)
+}
+.button-lime:hover,.contact-section .button-lime:hover{background:#49698f}
+.hero .play{border-color:#9aabba}
+.proof-strip{background:#eeede8;border-bottom-color:#e3e0d8;color:#778395}
+.proof-strip div{color:#43536a}
+.section{color:#29384c}
+.section h2,.payment-section h2,.contact-section h2{color:#29384c}
+.section h2 em,.payment-section h2 em{color:#6685aa}
+.dark-eyebrow,.step-label,.guide-card>a,.article-kicker{color:#6685aa}
+.guide-section,.about-details,.erp-screenshots{background:#f2f1ed}
+.guide-card,.plan-card,.feature-card,.about-details-card,.erp-screenshot-card,.social-link{
+  background:#fbfaf7;border-color:#e4e1da;box-shadow:0 7px 22px rgba(45,55,69,.035)
+}
+.guide-card:hover,.plan-card:hover,.feature-card:hover,.erp-screenshot-card:hover{
+  border-color:#cbd5dc;box-shadow:0 12px 28px rgba(45,55,69,.065)
+}
+.guide-feature,.plan-highlight{background:linear-gradient(145deg,#edf1f2,#fbfaf7);border-color:#d8e0e1}
+.icon-setup,.plan-icon,.payment-icon,.social-email-icon{background:#e8edef;color:#607fa3}
+.icon-flow{background:#edf0ed;color:#718e8a}
+.icon-move{background:#edf0e9;color:#788d78}
+.plans-section{background:linear-gradient(180deg,#f2f1ed,#f8f7f3)}
+.plan-highlight:before{background:linear-gradient(90deg,#6685aa,#9bbdcc)}
+.popular{background:#6685aa;color:#fff}
+.plan-card li:before{color:#718e82}
+.manifesto.about-section{
+  background:radial-gradient(ellipse at 82% 45%,rgba(141,184,207,.11),transparent 40%),linear-gradient(130deg,#26364d,#344b63);
+}
+.manifesto .eyebrow{color:#b8cbd4}
+.manifesto h2 em{color:#a9cbd9}
+.manifesto p{color:#d0d8df}
+.download-section{
+  background:radial-gradient(circle at 78% 45%,rgba(141,184,207,.12),transparent 34%),linear-gradient(120deg,#26364d,#354e67);
+}
+.download-copy>p{color:#d1d9df}
+.download-copy>small,.download-label{color:#c1ced7}
+.download-symbol{background:linear-gradient(135deg,#8db8cf,#5879a5);box-shadow:0 18px 42px rgba(15,27,43,.22)}
+.payment-section{background:#fbfaf7;border-color:#e5e2dc;box-shadow:0 10px 28px rgba(45,55,69,.045)}
+.contact-section{
+  background:radial-gradient(ellipse at 8% 10%,rgba(141,184,207,.10),transparent 36%),linear-gradient(125deg,#293b53,#38536d);
+}
+.contact-section h2,.contact-section h2 em{color:#f7f6f2}
+.contact-section .contact-copy>p,.contact-section .contact-phone-number{color:#d5dce1}
+.contact-section .contact-method small{color:#bfd0d8}
+.contact-section .contact-email{border-color:#8395a6}
+.contact-section .method-icon{background:#607fa3;color:#fff}
+.contact-section .contact-form{background:#fbfaf7;border-color:#e3e0d9;box-shadow:0 14px 34px rgba(13,24,39,.12)}
+.contact-section .contact-form input,.contact-section .contact-form select,.contact-section .contact-form textarea{background:#f6f5f1;border-color:#e2dfd8;color:#35445a}
+.contact-section .contact-form input:focus,.contact-section .contact-form select:focus,.contact-section .contact-form textarea:focus{border-color:#829bb7;box-shadow:0 0 0 3px rgba(104,133,170,.12)}
+.social-section{background:linear-gradient(135deg,#f0f1ee,#f8f7f3 65%,#edf1f1)}
+.social-link{background:#fbfaf7;border-color:#e3e1db}
+.social-link:hover,.social-link:focus-visible{border-color:#c5d2d8;box-shadow:0 10px 25px rgba(45,55,69,.06)}
+.social-facebook,.social-linkedin{color:#5879a5}
+.social-promo-banner{background:linear-gradient(120deg,#26364d,#354e67)}
+.footer{background:#202f43;color:#f3f2ed}
+.footer-links{border-color:#435267}
+.footer>p,.footer-bottom,.footer-bottom>a:last-child{color:#c0c9d1}
+.inner-page{color:#29384c}
+.inner-page h1,.inner-page h2{color:#29384c}
+.inner-page .eyebrow{color:#6685aa}
+.inner-page .feature-card,.inner-page .tutorial-item,.inner-page .contact-form{background:#fbfaf7;border-color:#e4e1da}
+.inner-page .notice,.module-tip{background:#edf0ee;border-color:#d9e0dc}
+.checkout-section{background:#f0efeb}
+.checkout-box{background:#fbfaf7;border-color:#e3e0d9;box-shadow:0 12px 32px rgba(45,55,69,.06)}
+.checkout-box .button{background:#5879a5}
+.checkout-total{background:#edf0ee;border-color:#dce2df;color:#35445a}
+.vikaa-launcher{background:#293b53;border-color:#657d96}
+.vikaa-launcher-icon,.vikaa-form button,.vikaa-message.vikaa-user p{background:#5879a5}
+.vikaa-head{background:linear-gradient(110deg,#26364d,#354e67)}
+.vikaa-quick-prompts button{border-color:#d9e0e5;color:#506781}
+:focus-visible{outline-color:#8db8cf}
+@media(max-width:900px){.nav-links{background:#fbfaf7;border-color:#e4e1da}.hero{background:linear-gradient(145deg,#26364d,#354e67)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
