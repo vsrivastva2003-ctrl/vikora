@@ -93,14 +93,43 @@ document.querySelector('#generate-license').addEventListener('click', async () =
   }
 });
 
-document.querySelector('#contact-form').addEventListener('submit', event => {
-  event.preventDefault();
-  const form = event.currentTarget;
+async function sendWebsiteEnquiry(form, type, note) {
   const data = new FormData(form);
-  const subject = encodeURIComponent(`Vikora enquiry: ${data.get('topic')}`);
-  const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`);
-  document.querySelector('#form-note').textContent = 'Opening your email app with your message ready to send.';
-  window.location.href = `mailto:vikoraone@vikora.in?subject=${subject}&body=${body}`;
+  const button = form.querySelector('button[type="submit"]');
+  const originalLabel = button?.textContent || 'Send';
+  const status = document.getElementById(note);
+  if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+  if (status) status.textContent = 'Sending your enquiry securely…';
+  try {
+    const response = await fetch('https://vikaa-support-api.onrender.com/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type,
+        name: data.get('name'),
+        email: data.get('email'),
+        phone: data.get('phone') || '',
+        location: data.get('location') || '',
+        topic: data.get('topic') || '',
+        experience: data.get('experience') || '',
+        investment: data.get('investment') || '',
+        message: data.get('message') || ''
+      })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.detail || 'Your message could not be sent. Please try again.');
+    form.reset();
+    if (status) status.textContent = 'Thank you. Your enquiry has been sent to Vikora Support.';
+  } catch (error) {
+    if (status) status.textContent = error.message || 'Unable to send right now. Please email vikoraone@vikora.in directly.';
+  } finally {
+    if (button) { button.disabled = false; button.textContent = originalLabel; }
+  }
+}
+
+document.querySelector('#contact-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  sendWebsiteEnquiry(event.currentTarget, 'website_contact', 'form-note');
 });
 
 const galleryCards = document.querySelectorAll('.about-gallery-card');
@@ -214,20 +243,7 @@ if (showcase) {
 
 document.querySelector('#franchise-form')?.addEventListener('submit', event => {
   event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const subject = encodeURIComponent('Vikora franchise / business partner enquiry');
-  const body = encodeURIComponent(
-    'Franchise / Business Partner Enquiry\n\n' +
-    'Name: ' + data.get('name') + '\n' +
-    'Email: ' + data.get('email') + '\n' +
-    'Phone: ' + data.get('phone') + '\n' +
-    'City / State: ' + data.get('location') + '\n' +
-    'Business experience: ' + data.get('experience') + '\n' +
-    'Investment range: ' + (data.get('investment') || 'Prefer to discuss') + '\n\n' +
-    'Plan / questions: ' + (data.get('message') || 'Not provided')
-  );
-  document.querySelector('#franchise-note').textContent = 'Opening your email app with the enquiry ready. Please send the email to complete your enquiry.';
-  window.location.href = 'mailto:vikoraone@vikora.in?subject=' + subject + '&body=' + body;
+  sendWebsiteEnquiry(event.currentTarget, 'franchise_partner', 'franchise-note');
 });
 
 
