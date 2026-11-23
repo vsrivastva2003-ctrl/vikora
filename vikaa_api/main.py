@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import re
 import urllib.error
@@ -12,6 +13,7 @@ from pydantic import BaseModel, Field
 from openai import OpenAI
 
 app = FastAPI(title="VIKAA Support API", version="1.1.0")
+logger = logging.getLogger("uvicorn.error")
 
 KNOWLEDGE_PATH = Path(__file__).with_name("knowledge_base.json")
 try:
@@ -165,7 +167,7 @@ def website_contact(payload: WebsiteContactRequest):
         "to": ["vikoraone@vikora.in"],
         "reply_to": payload.email,
         "subject": f"Vikora website: {subject_detail}",
-        "text": "\\n".join(lines),
+        "text": "\n".join(lines),
     }).encode("utf-8")
     request = urllib.request.Request(
         "https://api.resend.com/emails",
@@ -178,6 +180,9 @@ def website_contact(payload: WebsiteContactRequest):
             result = json.loads(response.read().decode("utf-8"))
             return {"ok": True, "message": "Enquiry accepted for email delivery.", "email_id": result.get("id")}
     except urllib.error.HTTPError as error:
+        # Log provider response only; never log request headers or API credentials.
+        provider_detail = error.read().decode("utf-8", errors="replace")[:1000]
+        logger.error("Resend rejected website enquiry: HTTP %s; response=%s", error.code, provider_detail)
         raise HTTPException(status_code=502, detail="Email provider could not accept the enquiry. Please try again or email vikoraone@vikora.in directly.") from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
         raise HTTPException(status_code=502, detail="Email delivery is temporarily unavailable. Please try again or email vikoraone@vikora.in directly.")
