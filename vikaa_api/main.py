@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import urllib.error
+import urllib.request
 from pathlib import Path
 from typing import Literal
 
@@ -39,9 +41,10 @@ def retrieve_knowledge(question: str, limit: int = 3) -> list[dict]:
 
 # Restrict browser callers to the official Vikora site; configure VIKAA_ALLOWED_ORIGIN in Render if the domain changes.
 allowed_origin = os.getenv("VIKAA_ALLOWED_ORIGIN", "https://vikora-b4yt.onrender.com").rstrip("/")
+allowed_origins = list(dict.fromkeys([allowed_origin, "https://vikora.in", "https://www.vikora.in"]))
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[allowed_origin],
+    allow_origins=allowed_origins,
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
@@ -121,3 +124,60 @@ def chat(payload: ChatRequest):
     except Exception:
         # Do not return provider error details or credentials to the browser.
         raise HTTPException(status_code=502, detail="VIKAA could not answer right now. Please try again or contact hello@vikora.com.")
+
+
+class WebsiteContactRequest(BaseModel):
+    type: Literal["website_contact", "franchise_partner"]
+    name: str = Field(min_length=2, max_length=120)
+    email: str = Field(min_length=5, max_length=254)
+    phone: str = Field(default="", max_length=40)
+    location: str = Field(default="", max_length=160)
+    topic: str = Field(default="", max_length=120)
+    experience: str = Field(default="", max_length=120)
+    investment: str = Field(default="", max_length=120)
+    message: str = Field(default="", max_length=5000)
+
+
+@app.post("/api/contact")
+def website_contact(payload: WebsiteContactRequest):
+    api_key = os.getenv("RESEND_API_KEY")
+    sender = os.getenv("RESEND_FROM_EMAIL")
+    if not api_key or not sender:
+        raise HTTPException(status_code=503, detail="Website email delivery is not configured yet. Please email vikoraone@vikora.in directly.")
+
+    enquiry_label = "Franchise / business partner enquiry" if payload.type == "franchise_partner" else "Website contact enquiry"
+    subject_detail = payload.topic if payload.type == "website_contact" and payload.topic else enquiry_label
+    lines = [
+        f"Enquiry type: {enquiry_label}",
+        f"Name: {payload.name}",
+        f"Email: {payload.email}",
+        f"Phone: {payload.phone or 'Not provided'}",
+        f"Location: {payload.location or 'Not provided'}",
+        f"Topic: {payload.topic or 'Not provided'}",
+        f"Business experience: {payload.experience or 'Not provided'}",
+        f"Investment range: {payload.investment or 'Not provided'}",
+        "",
+        "Message:",
+        payload.message or "Not provided",
+    ]
+    body = json.dumps({
+        "from": sender,
+        "to": ["vikoraone@vikora.in"],
+        "reply_to": payload.email,
+        "subject": f"Vikora website: {subject_detail}",
+        "text": "\\n".join(lines),
+    }).encode("utf-8")
+    request = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=body,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=15) as response:
+            result = json.loads(response.read().decode("utf-8"))
+            return {"ok": True, "message": "Enquiry accepted for email delivery.", "email_id": result.get("id")}
+    except urllib.error.HTTPError as error:
+        raise HTTPException(status_code=502, detail="Email provider could not accept the enquiry. Please try again or email vikoraone@vikora.in directly.") from error
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
+        raise HTTPException(status_code=502, detail="Email delivery is temporarily unavailable. Please try again or email vikoraone@vikora.in directly.")
