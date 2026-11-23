@@ -1115,3 +1115,137 @@ body{background:#f4f3ef;color:#29384c}
 :focus-visible{outline-color:#8db8cf}
 @media(max-width:900px){.nav-links{background:#fbfaf7;border-color:#e4e1da}.hero{background:linear-gradient(145deg,#26364d,#354e67)}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+
+/* Vikora visual refresh — premium navy, soft blue and warm porcelain */
+:root{
+  --ink:#17243a;--muted:#68778b;--cream:#f4f6fa;--paper:#ffffff;
+  --lime:#b9d5f5;--line:#e2e8f0;--orange:#d5a77d;
+  --vikora-navy:#101d33;--vikora-blue:#315f9e;--vikora-sky:#dce9f8;
+}
+body{background:#f4f6fa;color:#17243a;font-family:'DM Sans',sans-serif}
+.site-header{max-width:1360px;height:88px}
+.brand-mark{background:#dce9f8;color:#193456}
+.nav-links{gap:30px;color:#34445d}
+.nav-links>a:not(.nav-cta):hover,.footer a:hover{color:#315f9e}
+.nav-cta{border:1px solid #cbd7e6;border-radius:999px;padding:12px 20px;background:#fff}
+.hero{
+ background:radial-gradient(ellipse at 78% 42%,#dce9f8 0%,#eaf0f8 32%,#f5f7fb 72%);
+ border-radius:0 0 34px 34px;min-height:700px;padding-top:100px;padding-bottom:90px
+}
+.eyebrow{color:#526b8d;letter-spacing:2px}
+.pulse{background:#5682b8;box-shadow:0 0 0 4px #5682b826}
+.hero h1,.section h2,.manifesto h2,.download-section h2,.payment-section h2,.contact-section h2{
+ color:#14243c;letter-spacing:-3.2px
+}
+.hero h1 em,.section h2 em,.download-section h2 em,.payment-section h2 em,.contact-section h2 em{
+ color:#4779b4
+}
+.hero-lede{color:#607087}
+.button{border-radius:999px;min-height:50px;padding:0 23px;transition:all .22s ease}
+.button-lime{background:#244d7d;color:#fff;box-shadow:0 8px 20px #244d7d20}
+.button-lime:hover{background:#315f96;box-shadow:0 12px 24px #244d7d2a}
+.button-outline{border-color:#c6d2e1;color:#29496f;background:#ffffffb8}
+.button-outline:hover{background:#eaf1fa}
+.text-link{color:#29496f}
+.hero-art{filter:saturate(.82)}
+.sun-disc{background:linear-gradient(135deg,#d9e8f8,#a9c5e5);opacity:.9}
+.orbit{border-color:#a9bdd5}
+.product-window{border-radius:16px;box-shadow:0 28px 80px #1b355326}
+.window-top{background:#f3f6fb}
+.side-brand{background:#dce9f8;color:#254b78}
+.progress{background:#eff4fa}
+.progress u{background:#6795c8}
+.task-tag{background:#e6eff9;color:#426b9c}
+.floating-card{border-radius:13px;box-shadow:0 14px 42px #1b35531c}
+.mini-icon,.spark{background:#e6eff9;color:#4779b4}
+.card-top,.card-bottom{border:1px solid #e6edf5}
+.proof-strip{background:#e7edf5;color:#6d7e93}
+.proof-strip div{color:#253c5c}
+.section{padding-top:120px;padding-bottom:120px}
+.dark-eyebrow{color:#5479a5}
+.guide-grid,.plan-grid{gap:20px}
+.guide-card,.plan-card{
+ background:#fff;border:1px solid #e3eaf2;border-radius:18px;
+ box-shadow:0 8px 28px #233b5810;transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.guide-card:hover,.plan-card:hover{transform:translateY(-5px);box-shadow:0 18px 42px #233b5818;border-color:#c6d7eb}
+.guide-feature,.plan-highlight{background:linear-gradient(145deg,#edf4fc,#e3edf8);border-color:#d3e1f0}
+.step-label{color:#4779b4}
+.icon-setup,.guide-icon{background:#e4eef9;color:#4779b4}
+.icon-flow{background:#f5eee8;color:#a47a55}
+.icon-move{background:#e9eef3;color:#607c98}
+.guide-card>a{border-color:#a9c1dd;color:#315f96}
+.guide-foot{color:#72839a}
+.manifesto,.download-section{background:linear-gradient(125deg,#101d33 0%,#172d4b 58%,#203d61 100%)}
+.manifesto{border-radius:30px;margin:0 24px}
+.manifesto h2,.download-section h2{color:#fff}
+.manifesto h2 em,.download-section h2 em{color:#a9c9ef}
+.manifesto p,.download-copy>p{color:#c0cddd}
+.manifesto-orb{background:radial-gradient(circle at 40% 45%,#6e9bce35,#182b46 70%)}
+.manifesto-stamp{border-color:#607c9d;color:#d5e2f2}
+.manifesto-stamp span{color:#a9c9ef}
+.light-link{border-color:#7f9bbc}
+.popular{background:#dce9f8;color:#24476e;border-radius:999px}
+.plan-icon{background:#e8f0f9;color:#4779b4}
+.plan-kicker{color:#72839a}
+.plan-card h3{color:#1a2d48}
+.price{color:#14243c}
+.plan-card li:before{color:#4779b4}
+.plan-note{color:#77869a}
+.download-section{border-radius:30px;margin:0 24px;padding-top:78px;padding-bottom:78px}
+.download-ring{border-color:#9ab5d466}
+.download-symbol{background:linear-gradient(145deg,#dceafa,#9fbee2);color:#1b3556;box-shadow:0 22px 55px #07142688}
+.download-symbol span{color:#4779b4}
+.download-label{color:#d5e3f4}
+.payment-section{padding-top:105px;padding-bottom:105px}
+.payment-icon{background:#e2edf9;color:#4779b4}
+.payment-section p{color:#66768c}
+.contact-section{background:linear-gradient(135deg,#e8eef6,#f2f5f9);border-radius:30px 30px 0 0}
+.contact-section .eyebrow{color:#557ca8}
+.contact-section h2 em{color:#4779b4}
+.contact-copy>p{color:#62738a}
+.contact-email{border-color:#a8bdd5}
+.contact-email span,.contact-method .contact-email span{color:#4779b4}
+.method-icon{background:#dce9f8;color:#4779b4}
+.contact-form,.checkout-box,.franchise-form{
+ background:#fff;border:1px solid #e1e8f1;border-radius:18px;
+ box-shadow:0 16px 44px #1e385414
+}
+.contact-form input,.contact-form select,.contact-form textarea,
+.checkout-box input,.checkout-box select{border:1px solid #dce5ef;border-radius:9px;background:#fbfcfe}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus,
+.checkout-box input:focus,.checkout-box select:focus{border-color:#6d96c2;box-shadow:0 0 0 3px #6d96c21c}
+.footer{max-width:1360px}
+.footer-links{border-color:#dce4ed}
+.footer-bottom{color:#8290a2}
+.checkout-section{background:#edf2f8}
+.checkout-box h2 em{color:#4779b4}
+.checkout-total{background:#edf4fb;border-color:#d9e5f1;color:#29496f;border-radius:10px}
+.payment-choice{border-color:#dce5ef;border-radius:10px}
+.checkout-status{border-radius:9px}
+.rate-list{border-color:#e1e8f0}
+.rate-list b{color:#1b2e49}
+.license-detail{background:#f1f5fa;border-radius:8px}
+.franchise-section,.social-section{background:#f4f6fa}
+.franchise-form{border-radius:18px}
+.franchise-form input,.franchise-form select,.franchise-form textarea{border-radius:9px;border-color:#dce5ef}
+.social-link,.social-promo-card{border-radius:16px}
+.social-promo-banner{border-radius:22px;background:linear-gradient(125deg,#12223b,#24466e)}
+.social-promo-banner h3{color:#fff}
+.social-promo-banner p{color:#d0dceb}
+.social-promo-orbit{background:linear-gradient(145deg,#dceafa,#9fbee2);color:#1b3556}
+.social-promo-stamp{color:#d8e5f4}
+.social-promo-card{background:#fff;border:1px solid #e2e9f1;box-shadow:0 8px 28px #233b580d}
+.vikaa-panel{border:1px solid #dce5ef;border-radius:18px;box-shadow:0 20px 60px #14243c30}
+.vikaa-head{background:#172c49}
+.vikaa-launcher{background:#244d7d;box-shadow:0 12px 30px #244d7d35}
+@media(max-width:800px){
+ .hero{border-radius:0 0 24px 24px}
+ .manifesto,.download-section{margin:0 12px;border-radius:22px}
+ .contact-section{border-radius:22px 22px 0 0}
+ .nav-links{border:1px solid #e2e9f1;border-radius:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ .guide-card,.plan-card,.button{transition:none}
+}
