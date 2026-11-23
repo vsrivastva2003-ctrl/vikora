@@ -172,7 +172,12 @@ def website_contact(payload: WebsiteContactRequest):
     request = urllib.request.Request(
         "https://api.resend.com/emails",
         data=body,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "Vikora-Website-Enquiry/1.0",
+        },
         method="POST",
     )
     try:
