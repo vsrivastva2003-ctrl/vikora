@@ -15,33 +15,21 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   toggle.textContent = '☰';
 }));
 
-// Checkout: use delegated click handling so Buy/Rent always reveals the panel,
- // including when cards are refreshed or navigation is used on mobile.
+// Purchase and rental actions start a real enquiry until production checkout is enabled.
 document.addEventListener('click', event => {
   const link = event.target.closest('.checkout-start');
   if (!link) return;
   event.preventDefault();
-
-  const checkout = document.getElementById('checkout');
-  const plan = document.getElementById('plan-type');
-  const licenseType = document.getElementById('license-type');
-  if (!checkout || !plan || !licenseType) return;
-
-  plan.value = link.dataset.plan || 'Buy';
-  licenseType.value = '';
-  document.getElementById('checkout-total').textContent = 'Choose a license type to see your total.';
-  document.getElementById('checkout-status').textContent = 'Online payment is not active yet. Please contact Vikora to complete your purchase; no payment will be taken on this page.';
-  document.getElementById('customer-location').value = '';
-  document.getElementById('payment-choice').hidden = true;
-  document.getElementById('license-success').hidden = true;
-  document.getElementById('checkout-button').textContent = 'Online payment not available';
-  document.getElementById('checkout-button').disabled = true;
-  checkout.hidden = false;
-  history.replaceState(null, '', '#checkout');
-  requestAnimationFrame(() => {
-    checkout.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    checkout.querySelector('select, input')?.focus({ preventScroll: true });
-  });
+  const topic = document.querySelector('#contact-form select[name="topic"]');
+  const message = document.querySelector('#contact-form textarea[name="message"]');
+  if (topic) topic.value = link.dataset.plan === 'Rent' ? 'Renting Vikora' : 'Buying Vikora';
+  if (message) message.value = `I am interested in the ${link.dataset.plan === 'Rent' ? 'rental' : 'purchase'} option. Please share current availability, licence details and the secure payment process.`;
+  const contact = document.getElementById('contact');
+  if (contact) {
+    history.replaceState(null, '', '#contact');
+    contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('#contact-form input[name="name"]')?.focus({ preventScroll: true });
+  }
 });
 
 document.querySelector('.about-actions a[href="#contact"]')?.addEventListener('click', () => {
