@@ -1249,3 +1249,76 @@ body{background:#f4f6fa;color:#17243a;font-family:'DM Sans',sans-serif}
 @media(prefers-reduced-motion:reduce){
  .guide-card,.plan-card,.button{transition:none}
 }
+
+
+
+/* Vikora public website — Zoho ERP-inspired visual direction (original Vikora styling) */
+:root{
+  --cream:#f5f8fc;--paper:#ffffff;--ink:#14233d;--muted:#64748b;--line:#e2e8f0;
+  --lime:#2563eb;--lime-strong:#1d4ed8;--accent:#13b8a6;--brand-dark:#101d36;
+  --vikora-blue:#2563eb;--vikora-teal:#12b8a6;--vikora-navy:#101d36;--vikora-lilac:#eef2ff;
+}
+html,body{background:#f6f8fc;color:#14233d}
+body{background-image:radial-gradient(ellipse at 8% 2%,#e8efff 0,transparent 32%),radial-gradient(ellipse at 94% 17%,#e2fbf6 0,transparent 26%),linear-gradient(180deg,#fff 0%,#f6f8fc 58%,#f3f7fb 100%)}
+main{background:linear-gradient(180deg,#fff 0%,#f7f9fc 46%,#f4f7fb 100%)}
+.site-header{max-width:none;padding-left:clamp(24px,5vw,84px);padding-right:clamp(24px,5vw,84px);background:rgba(255,255,255,.94);border-bottom:1px solid #e6ebf3;backdrop-filter:blur(16px)}
+.nav-links{gap:clamp(15px,1.7vw,28px);color:#34445d}
+.nav-links>a:not(.nav-cta):hover,.footer a:hover{color:#2563eb}
+.nav-cta,.button-lime{background:#2563eb!important;color:#fff!important;border-color:#2563eb!important;border-radius:8px!important}
+.nav-cta:hover,.button-lime:hover{background:#1d4ed8!important;border-color:#1d4ed8!important}
+.hero{max-width:none;min-height:690px;padding-left:clamp(36px,8vw,132px);padding-right:clamp(36px,8vw,132px);background:radial-gradient(ellipse at 78% 42%,#dce8ff 0,transparent 40%),radial-gradient(ellipse at 8% 90%,#d9f7f0 0,transparent 36%),linear-gradient(120deg,#fff 0%,#f4f7ff 58%,#eaf8f7 100%)}
+.hero .eyebrow,.eyebrow,.article-kicker{color:#2563a9}
+.pulse{background:#13b8a6;box-shadow:0 0 0 4px #13b8a626}
+.hero h1 em,.section h2 em,.manifesto h2 em,.download-section h2 em,.payment-section h2 em,.contact-section h2 em{color:#2563eb}
+.hero-lede{color:#53647c;max-width:470px}
+.hero-art{isolation:isolate}
+.sun-disc{background:linear-gradient(145deg,#b9d3ff,#b8f0e5);opacity:.85}
+.orbit{border-color:#c6d6ee}
+.product-window{border:1px solid #e2eaf5;border-radius:16px;box-shadow:0 28px 80px #152c5030;transform:rotate(-2deg)}
+.window-top{background:#f8faff;border-color:#e7edf6}
+.side-brand{background:#2563eb;color:#fff;border-radius:8px}
+.progress{background:#f0f5ff}
+.progress u{background:linear-gradient(90deg,#2563eb,#12b8a6)}
+.task-tag,.mini-icon,.spark{background:#e9f7f5;color:#138d83}
+.floating-card{border:1px solid #e7edf5;border-radius:12px;box-shadow:0 16px 42px #1c315016}
+.proof-strip{background:linear-gradient(100deg,#edf3ff,#e8f8f5 55%,#f3f5ff);color:#66758b}
+.proof-strip div{color:#1d3556}
+.section{max-width:1500px}
+.guide-card,.plan-card,.tutorial-manual,.contact-form,.feature-card{border-color:#e3eaf3;border-radius:14px;box-shadow:0 8px 26px #1b35500a}
+.guide-card{background:#fff}
+.guide-feature,.plan-highlight{background:linear-gradient(145deg,#eaf1ff,#e8f8f5);border-color:#dbe7f7}
+.guide-icon,.plan-icon{border-radius:12px}
+.manifesto,.download-section{background:linear-gradient(125deg,#101d36 0%,#183d68 62%,#126b70 100%);color:#fff}
+.manifesto .eyebrow,.download-section .eyebrow{color:#8de7d8}
+.manifesto h2 em,.download-section h2 em{color:#8de7d8}
+.manifesto-orb{background:radial-gradient(circle at 40% 45%,#4f8ffb55,#101d36 72%)}
+.about-details{background:linear-gradient(150deg,#f5f8ff,#eef5fb 56%,#eaf8f5)}
+.showcase-slide,.showcase-image{border-radius:16px}
+.showcase-dot.is-active{background:#2563eb}
+.showcase-progress i{background:linear-gradient(90deg,#2563eb,#12b8a6)}
+.plans-section{background:transparent}
+.plan-card{background:#fff;border-color:#e2e8f0}
+.plan-highlight{background:linear-gradient(150deg,#edf3ff,#e9f9f5)}
+.popular{background:#dff7f2;color:#147e75}
+.checkout-section{background:linear-gradient(130deg,#eaf1ff,#e6f8f4)}
+.checkout-box{border:1px solid #dce7f2;border-radius:18px;box-shadow:0 20px 60px #172b4d12}
+.payment-section{background:#fff;border:1px solid #e2e8f0;border-radius:16px}
+.payment-icon,.method-icon{background:#e8f7f5;color:#128d83;border-radius:12px}
+.contact-section{background:radial-gradient(ellipse at 12% 10%,#dfeaff 0,transparent 38%),radial-gradient(ellipse at 94% 80%,#d9f6ef 0,transparent 34%),linear-gradient(135deg,#f0f5ff,#edf8f6)}
+.contact-form{background:#fff;border-radius:16px}
+.contact-form input,.contact-form select,.contact-form textarea{border:1px solid #dbe4ef;border-radius:8px;background:#fbfdff}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:3px solid #2563eb20;border-color:#6493e8}
+.footer{max-width:none;background:linear-gradient(125deg,#0b1730,#122e52 68%,#0d4b50);color:#f3f7ff}
+.footer>p,.footer-bottom{color:#bdcbe0}
+.footer-links{border-color:#ffffff2c;color:#dbe6f5}
+.footer-bottom>a:last-child{color:#8de7d8}
+::selection{background:#cfe0ff;color:#14233d}
+.button{border-radius:8px;box-shadow:0 5px 14px #1d4ed81c;transition:transform .18s,box-shadow .18s,background .18s}
+.button:hover{transform:translateY(-2px);box-shadow:0 9px 22px #1d4ed82a}
+.button:active{transform:translateY(0)}
+.inner-page{max-width:1180px;margin:0 auto;padding:90px clamp(22px,6vw,80px);color:#14233d}
+.inner-page h1,.inner-page h2{color:#14233d;font-family:Manrope,sans-serif;letter-spacing:-1.5px}
+.inner-page .lead{color:#5b6c83}
+.inner-page .feature-card,.inner-page .notice,.inner-page .contact-form,.inner-page .tutorial-item{background:#fff;border:1px solid #e2e8f0;border-radius:14px}
+.inner-page .button-lime{color:#fff!important}
+@media(max-width:800px){.hero{padding-top:65px;padding-bottom:65px;min-height:0}.site-header{padding-left:18px;padding-right:18px}}
