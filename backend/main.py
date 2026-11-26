@@ -15,6 +15,8 @@ from sqlalchemy import DateTime, Integer, String, create_engine, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 APP_ENV = os.getenv("APP_ENV", "test").lower()
+if APP_ENV != "test":
+    raise RuntimeError("This payments service is test-only. Configure production payments in a separate service.")
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./vikora_test.db")
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
@@ -154,7 +156,8 @@ def issue_license(db, purchase: Purchase) -> Optional[str]:
     return key
 
 def razorpay_configured():
-    return bool(RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET)
+    # This deployment is intentionally restricted to Razorpay Test Mode.
+    return APP_ENV == "test" and bool(RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET)
 
 @app.get("/health")
 def health():
