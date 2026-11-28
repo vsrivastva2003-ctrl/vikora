@@ -1,0 +1,25 @@
+name: Production payments build check
+
+on:
+  push:
+    branches:
+      - production/payments-licensing
+  pull_request:
+    paths:
+      - "production_payments/**"
+      - ".github/workflows/production-payments-ci.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: production_payments/requirements.txt
+      - name: Install production service dependencies
+        run: python -m pip install -r production_payments/requirements.txt
+      - name: Compile-check service
+        run: python -m py_compile production_payments/main.py
