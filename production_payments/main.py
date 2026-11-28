@@ -1,4 +1,5 @@
 import hashlib
+import html
 import hmac
 import json
 import os
@@ -121,10 +122,10 @@ class VerifyRequest(BaseModel):
 def send_license_email(purchase: Purchase, key: str) -> bool:
     label, _amount, seats = PRICE_TABLE[purchase.plan_key]
     html = (
-        f"<p>Hello {purchase.customer_name},</p>"
+        f"<p>Hello {html.escape(purchase.customer_name)},</p>"
         "<p>Your Vikora-One payment has been verified. Your licence key is:</p>"
         f"<p style='font-size:20px;font-weight:bold;letter-spacing:1px'>{key}</p>"
-        f"<p>Plan: {label}<br>Seats: {seats}<br>Payment reference: {purchase.provider_payment_id}</p>"
+        f"<p>Plan: {html.escape(label)}<br>Seats: {seats}<br>Payment reference: {html.escape(purchase.provider_payment_id or '')}</p>"
         "<p>Please keep this key private. For activation support, email vikoraone@vikora.in.</p>"
     )
     try:
@@ -271,18 +272,27 @@ async def razorpay_webhook(request: Request, x_razorpay_signature: str = Header(
     with SessionLocal() as db:
         if db.scalar(select(WebhookEvent).where(WebhookEvent.event_id == x_razorpay_event_id)):
             return {"received": True, "duplicate": True}
-        if event_type == "payment.captured" and order_id and payment_id:
+        if event_type == "payment.captured":
+            if not order_id or not payment_id:
+                raise HTTPException(400, "Captured payment event is missing its order or payment ID.")
             purchase = db.scalar(select(Purchase).where(Purchase.provider_order_id == order_id).with_for_update())
-            if purchase and entity.get("amount") == purchase.amount and entity.get("currency") == purchase.currency:
-                if purchase.status != "paid":
-                    purchase.provider_payment_id = payment_id
-                    purchase.status = "paid"
-                    purchase.paid_at = datetime.now(timezone.utc)
-                    db.commit()
-                    db.refresh(purchase)
-                if purchase.provider_payment_id == payment_id:
-                    fulfill_paid_purchase(db, purchase)
-        # Persist the event only after processing; if processing raises, Razorpay can retry it.
+            if not purchase:
+                # Do not acknowledge an unknown order; a transient DB/order race can be retried.
+                raise HTTPException(404, "Payment order is not present in the production order database.")
+            if entity.get("amount") != purchase.amount or entity.get("currency") != purchase.currency:
+                raise HTTPException(409, "Captured payment amount or currency does not match the stored order.")
+            if purchase.status == "paid" and purchase.provider_payment_id != payment_id:
+                raise HTTPException(409, "Order is already associated with a different captured payment.")
+            if purchase.status != "paid":
+                purchase.provider_payment_id = payment_id
+                purchase.status = "paid"
+                purchase.paid_at = datetime.now(timezone.utc)
+                db.commit()
+                db.refresh(purchase)
+            if purchase.provider_payment_id != payment_id:
+                raise HTTPException(409, "Payment ID does not match the paid order.")
+            fulfill_paid_purchase(db, purchase)
+        # Persist only after all required processing; failures remain retryable by Razorpay.
         db.add(WebhookEvent(event_id=x_razorpay_event_id, event_type=event_type))
         db.commit()
     return {"received": True}
