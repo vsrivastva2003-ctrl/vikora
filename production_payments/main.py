@@ -271,8 +271,6 @@ async def razorpay_webhook(request: Request, x_razorpay_signature: str = Header(
     with SessionLocal() as db:
         if db.scalar(select(WebhookEvent).where(WebhookEvent.event_id == x_razorpay_event_id)):
             return {"received": True, "duplicate": True}
-        db.add(WebhookEvent(event_id=x_razorpay_event_id, event_type=event_type))
-        db.commit()
         if event_type == "payment.captured" and order_id and payment_id:
             purchase = db.scalar(select(Purchase).where(Purchase.provider_order_id == order_id).with_for_update())
             if purchase and entity.get("amount") == purchase.amount and entity.get("currency") == purchase.currency:
@@ -284,6 +282,9 @@ async def razorpay_webhook(request: Request, x_razorpay_signature: str = Header(
                     db.refresh(purchase)
                 if purchase.provider_payment_id == payment_id:
                     fulfill_paid_purchase(db, purchase)
+        # Persist the event only after processing; if processing raises, Razorpay can retry it.
+        db.add(WebhookEvent(event_id=x_razorpay_event_id, event_type=event_type))
+        db.commit()
     return {"received": True}
 
 @app.post("/api/fulfillment/retry")
